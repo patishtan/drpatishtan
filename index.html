@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Juan Patishtan: docencia, investigación y asesoría en ciclos biogeoquímicos y suelos.">
+<title>Juan Patishtan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column with a sticky top nav; four views routed on the hash; the cycle ring is the site's mark. */
+:root {
+  --bg: #f6f8f7;
+  --surface: #ffffff;
+  --ink: #15211f;
+  --muted: #55645f;
+  --line: #d7e0dc;
+  --accent: #0f6b5c;
+  --accent-ink: #ffffff;
+  --soft: #e5efeb;
+  --ph: #9a5b00;
+  /* cycle colours, kept from the Wix page */
+  --c-agua: #0277b6;
+  --c-carbono: #3f4a56;
+  --c-nitrogeno: #6d3fd1;
+  --c-fosforo: #c24e0c;
+  --c-potasio: #15843d;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1615; --surface: #16201e; --ink: #e6eeeb; --muted: #9fb0aa; --line: #2a3936;
+    --accent: #4fc2ab; --accent-ink: #062520; --soft: #1b2b28; --ph: #f0b659;
+    --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #16201e; --ink: #e6eeeb; --muted: #9fb0aa; --line: #2a3936;
+  --accent: #4fc2ab; --accent-ink: #062520; --soft: #1b2b28; --ph: #f0b659;
+  --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 500; }
+p { margin: 0; }
+.wrap { max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ph { color: var(--ph); border-bottom: 1px dashed currentColor; }
+
+/* header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+nav.main { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main a { font-family: var(--display); font-weight: 500; font-size: .95rem; text-decoration: none; color: var(--muted); padding: 6px 12px; border-radius: 6px; }
+nav.main a:hover { color: var(--ink); background: var(--soft); }
+nav.main a[aria-current="page"] { color: var(--accent-ink); background: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+main { padding-block: 40px 64px; }
+section.view { display: grid; gap: 48px; }
+.stack { display: grid; gap: 16px; }
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 62ch; }
+
+/* home hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.hero .stack > * { min-width: 0; }
+.ring { width: 100%; max-width: 340px; justify-self: center; }
+.ring text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.ring .orbit { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 5; }
+@media (prefers-reduced-motion: no-preference) {
+  .ring .spin { transform-origin: 170px 170px; animation: spin 60s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+}
+.btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { display: inline-block; font-family: var(--display); font-weight: 500; text-decoration: none; padding: 10px 18px; border-radius: 8px; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; font-size: 1rem; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn:hover { filter: brightness(1.08); }
+
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.tile p { color: var(--muted); font-size: .98rem; }
+.tile a.more { font-family: var(--display); font-size: .95rem; text-decoration: none; }
+.news { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.news li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.news time { font-family: var(--mono); font-size: .85rem; color: var(--muted); padding-top: 3px; }
+ul.plain { list-style: none; margin: 0; padding: 0; }
+
+/* research */
+.lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.line { border-top: 3px solid var(--k, var(--accent)); padding-top: 14px; display: grid; gap: 8px; }
+.line p { color: var(--muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-family: var(--mono); font-size: .75rem; padding: 2px 8px; border-radius: 999px; background: var(--soft); color: var(--ink); }
+.pubs li { padding-block: 14px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.pubs .cite { font-size: 1rem; }
+.pubs .meta { font-family: var(--mono); font-size: .8rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* teaching: cycles explorer */
+.courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
+.explorer { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
+.tabs button { flex: 1 1 0; min-width: 0; border: 0; background: transparent; color: var(--muted); padding: 14px 10px 12px; cursor: pointer; display: grid; justify-items: center; gap: 2px; border-bottom: 3px solid transparent; font-family: var(--display); font-size: .95rem; }
+.tabs button .sym { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--c); line-height: 1; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--c); background: var(--soft); }
+.tabs button:hover { color: var(--ink); }
+.panel { padding: 24px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 28px; }
+.panel h3 { color: var(--c); font-weight: 700; font-size: 1.4rem; }
+.panel .body { display: grid; gap: 12px; min-width: 0; }
+.steps { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.steps span { font-family: var(--mono); font-size: .8rem; padding: 3px 9px; border: 1px solid var(--c); color: var(--c); border-radius: 4px; }
+.steps i { color: var(--muted); font-style: normal; font-size: .8rem; }
+.facts { display: grid; gap: 10px; align-content: start; border-left: 1px solid var(--line); padding-left: 20px; }
+.facts dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0 0 6px; font-size: .98rem; }
+.facts dd b { font-family: var(--display); font-size: 1.25rem; color: var(--c); font-weight: 700; }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; align-items: start; }
+.card-info { display: grid; gap: 14px; }
+.card-info .row { display: grid; gap: 2px; }
+.copy { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.copy code { font-family: var(--mono); font-size: .95rem; background: var(--soft); padding: 4px 8px; border-radius: 4px; user-select: all; }
+.copy button { font-family: var(--display); font-size: .85rem; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+form { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: grid; gap: 14px; }
+label { font-family: var(--display); font-size: .9rem; font-weight: 500; display: grid; gap: 6px; }
+input, textarea, select { font: inherit; font-size: 1rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); width: 100%; }
+textarea { min-height: 120px; resize: vertical; }
+.status { font-family: var(--mono); font-size: .85rem; color: var(--accent); min-height: 1.3em; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+
+@media (max-width: 760px) {
+  .hero, .contact { grid-template-columns: minmax(0, 1fr); }
+  .ring { max-width: 240px; order: -1; }
+  .grid3, .courses, .svc, .lines { grid-template-columns: minmax(0, 1fr); }
+  .panel { grid-template-columns: minmax(0, 1fr); }
+  .facts { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 16px; }
+  .news li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .tabs button { flex: 1 1 20%; padding-inline: 4px; font-size: .78rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="var(--accent)" stroke-width="2.5"/><circle cx="13" cy="3" r="3" fill="var(--c-agua)"/><circle cx="22.5" cy="16" r="3" fill="var(--c-nitrogeno)"/><circle cx="4" cy="17" r="3" fill="var(--c-potasio)"/></svg>
+      Juan Patishtan
+    </a>
+    <nav class="main" aria-label="Secciones">
+      <a href="#inicio">Inicio</a>
+      <a href="#investigacion">Investigación</a>
+      <a href="#docencia">Docencia</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- INICIO -->
+  <section class="view" id="v-inicio">
+    <div class="hero">
+      <div class="stack">
+        <p class="eyebrow">Docencia · Investigación · Asesoría</p>
+        <h1>Cómo se mueven los elementos que sostienen la vida.</h1>
+        <p class="lead">Soy profesor e investigador en <span class="ph">[Institución]</span>. Estudio los ciclos del agua, el carbono y los nutrientes en <span class="ph">[suelos / ecosistemas de tu región]</span>, y enseño ciencias ambientales a estudiantes de <span class="ph">[nivel]</span>.</p>
+        <div class="btns">
+          <a class="btn primary" href="#docencia">Explorar los ciclos</a>
+          <a class="btn" href="#investigacion">Ver mi investigación</a>
+        </div>
+      </div>
+      <svg class="ring" viewBox="0 0 340 340" role="img" aria-label="Los cinco ciclos biogeoquímicos: agua, carbono, nitrógeno, fósforo y potasio">
+        <circle class="orbit" cx="170" cy="170" r="120"/>
+        <g class="spin">
+          <g transform="translate(170 50)"><circle r="28" fill="var(--c-agua)"/><text y="6" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:17px;font-weight:700">H₂O</text></g>
+          <g transform="translate(284 133)"><circle r="28" fill="var(--c-carbono)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">C</text></g>
+          <g transform="translate(240 267)"><circle r="28" fill="var(--c-nitrogeno)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">N</text></g>
+          <g transform="translate(100 267)"><circle r="28" fill="var(--c-fosforo)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">P</text></g>
+          <g transform="translate(56 133)"><circle r="28" fill="var(--c-potasio)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">K</text></g>
+        </g>
+        <text x="170" y="166" text-anchor="middle">atmósfera ⇄ suelo</text>
+        <text x="170" y="184" text-anchor="middle">⇄ seres vivos</text>
+      </svg>
+    </div>
+
+    <div class="grid3">
+      <div class="tile"><p class="eyebrow">Investigación</p><h3>Nutrientes en el suelo</h3><p>Proyectos sobre la disponibilidad de nitrógeno y fósforo en sistemas agrícolas y forestales.</p><a class="more" href="#investigacion">Líneas y publicaciones →</a></div>
+      <div class="tile"><p class="eyebrow">Docencia</p><h3>Ciclos biogeoquímicos</h3><p>Materiales interactivos para clase: agua, carbono, nitrógeno, fósforo y potasio.</p><a class="more" href="#docencia">Material de cursos →</a></div>
+      <div class="tile"><p class="eyebrow">Servicios</p><h3>Asesoría técnica</h3><p>Análisis e interpretación de suelos y agua, talleres y capacitación para instituciones.</p><a class="more" href="#servicios">Qué ofrezco →</a></div>
+    </div>
+
+    <div class="stack">
+      <h2>Novedades</h2>
+      <ul class="plain news">
+        <li><time datetime="2026-10">Oct 2026</time><p>Nuevo material sobre el ciclo del potasio disponible en <a href="#docencia">Docencia</a>. <span class="ph">[ejemplo]</span></p></li>
+        <li><time datetime="2026-09">Sep 2026</time><p>Presentación en <span class="ph">[Congreso Nacional de la Ciencia del Suelo]</span>.</p></li>
+        <li><time datetime="2026-06">Jun 2026</time><p>Artículo aceptado en <span class="ph">[Revista]</span> sobre fijación biológica de nitrógeno.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INVESTIGACIÓN -->
+  <section class="view" id="v-investigacion" hidden>
+    <div class="stack">
+      <p class="eyebrow">Investigación</p>
+      <h1>Líneas de investigación</h1>
+      <p class="lead">Mi grupo combina trabajo de campo, análisis de laboratorio y modelación para entender cómo el manejo del suelo cambia el flujo de nutrientes. <span class="ph">[Reemplaza con tu descripción]</span></p>
+    </div>
+    <div class="lines">
+      <article class="line" style="--k: var(--c-nitrogeno)"><h3>Fijación y pérdidas de nitrógeno</h3><p>Cuánto N₂ fijan las leguminosas en sistemas de milpa y cuánto se pierde por lixiviación y desnitrificación.</p><div class="tags"><span class="tag">N</span><span class="tag">milpa</span><span class="tag">isótopos ¹⁵N</span></div></article>
+      <article class="line" style="--k: var(--c-carbono)"><h3>Carbono orgánico del suelo</h3><p>Almacenamiento de carbono bajo distintos usos de suelo y su relación con la fertilidad.</p><div class="tags"><span class="tag">C</span><span class="tag">COS</span><span class="tag">t C/ha</span></div></article>
+      <article class="line" style="--k: var(--c-fosforo)"><h3>Fósforo disponible</h3><p>Fijación de fósforo en suelos volcánicos y estrategias para mejorar su aprovechamiento.</p><div class="tags"><span class="tag">P</span><span class="tag">andosoles</span><span class="tag">mg/kg Olsen</span></div></article>
+      <article class="line" style="--k: var(--c-agua)"><h3>Agua y escorrentía</h3><p>Infiltración y arrastre de nutrientes hacia cuerpos de agua en cuencas pequeñas.</p><div class="tags"><span class="tag">H₂O</span><span class="tag">cuencas</span><span class="tag">mm/h</span></div></article>
+    </div>
+    <div class="stack">
+      <h2>Publicaciones seleccionadas</h2>
+      <p class="eyebrow">Ejemplos de formato. Sustituir por tus publicaciones reales.</p>
+      <ul class="plain pubs">
+        <li><p class="cite"><b>Patishtan, J.</b>, <span class="ph">[Coautor, A.]</span> (2026). <span class="ph">[Título del artículo sobre nitrógeno en sistemas agrícolas]</span>. <i class="ph">[Nombre de la revista]</i>, 00(0), 1–15.</p><p class="meta"><span>Artículo</span><a href="#investigacion">DOI</a><a href="#investigacion">PDF</a></p></li>
+        <li><p class="cite"><span class="ph">[Coautor, B.]</span>, <b>Patishtan, J.</b> (2025). <span class="ph">[Título sobre carbono orgánico del suelo]</span>. <i class="ph">[Revista]</i>, 00, 100–112.</p><p class="meta"><span>Artículo</span><a href="#investigacion">DOI</a></p></li>
+        <li><p class="cite"><b>Patishtan, J.</b> (2024). <span class="ph">[Título de capítulo de libro]</span>. En <span class="ph">[Editores]</span>, <i class="ph">[Libro]</i>. Editorial.</p><p class="meta"><span>Capítulo</span></p></li>
+      </ul>
+      <p>Perfiles: <span class="ph">[Google Scholar]</span> · <span class="ph">[ORCID]</span> · <span class="ph">[ResearchGate]</span></p>
+    </div>
+  </section>
+
+  <!-- DOCENCIA -->
+  <section class="view" id="v-docencia" hidden>
+    <div class="stack">
+      <p class="eyebrow">Docencia</p>
+      <h1>Ciclos biogeoquímicos</h1>
+      <p class="lead">Elige un ciclo para ver cómo se mueve el elemento entre la atmósfera, el suelo, el agua y los seres vivos. Este es el mismo contenido de tu página en Wix, reorganizado.</p>
+    </div>
+
+    <div class="explorer">
+      <div class="tabs" role="tablist" aria-label="Ciclos">
+        <button role="tab" id="t-agua" aria-controls="p-agua" style="--c:var(--c-agua)"><span class="sym">H₂O</span>Agua</button>
+        <button role="tab" id="t-carbono" aria-controls="p-carbono" style="--c:var(--c-carbono)"><span class="sym">C</span>Carbono</button>
+        <button role="tab" id="t-nitrogeno" aria-controls="p-nitrogeno" style="--c:var(--c-nitrogeno)"><span class="sym">N</span>Nitrógeno</button>
+        <button role="tab" id="t-fosforo" aria-controls="p-fosforo" style="--c:var(--c-fosforo)"><span class="sym">P</span>Fósforo</button>
+        <button role="tab" id="t-potasio" aria-controls="p-potasio" style="--c:var(--c-potasio)"><span class="sym">K</span>Potasio</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-agua" aria-labelledby="t-agua" style="--c:var(--c-agua)">
+        <div class="body">
+          <h3>Ciclo del agua</h3>
+          <p>El agua circula continuamente entre los océanos, la atmósfera y la tierra. La energía del Sol la evapora, se condensa en nubes y regresa a la superficie como precipitación.</p>
+          <div class="steps"><span>evaporación</span><i>→</i><span>transpiración</span><i>→</i><span>condensación</span><i>→</i><span>precipitación</span><i>→</i><span>infiltración</span><i>→</i><span>escorrentía</span></div>
+          <p><b>Importancia:</b> regula el clima y distribuye agua dulce para todos los seres vivos.</p>
+        </div>
+        <dl class="facts"><dt>Tipo de ciclo</dt><dd>Gaseoso / hidrológico</dd><dt>Principal reservorio</dt><dd>Océanos, <b>≈97%</b> del agua</dd><dt>Motor</dt><dd>Energía solar</dd></dl>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-carbono" aria-labelledby="t-carbono" style="--c:var(--c-carbono)" hidden>
+        <div class="body">
+          <h3>Ciclo del carbono</h3>
+          <p>El carbono pasa de la atmósfera (como CO₂) a los seres vivos mediante la fotosíntesis, y regresa a ella por la respiración, la descomposición y la quema de combustibles fósiles.</p>
+          <div class="steps"><span>fotosíntesis</span><i>→</i><span>consumo</span><i>→</i><span>respiración</span><i>→</i><span>descomposición</span><i>→</i><span>combustión</span></div>
+          <p><b>Importancia:</b> es la base de las moléculas orgánicas y controla el efecto invernadero.</p>
+        </div>
+        <dl class="facts"><dt>Tipo de ciclo</dt><dd>Gaseoso</dd><dt>Reservorios</dt><dd>Atmósfera, océanos, rocas, suelo y biomasa</dd><dt>Forma atmosférica</dt><dd><b>CO₂</b></dd></dl>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-nitrogeno" aria-labelledby="t-nitrogeno" style="--c:var(--c-nitrogeno)" hidden>
+        <div class="body">
+          <h3>Ciclo del nitrógeno</h3>
+          <p>Aunque el 78% del aire es nitrógeno (N₂), la mayoría de los organismos no puede usarlo directamente. Bacterias del suelo lo transforman en compuestos que las plantas sí pueden absorber.</p>
+          <div class="steps"><span>fijación</span><i>→</i><span>nitrificación</span><i>→</i><span>asimilación</span><i>→</i><span>amonificación</span><i>→</i><span>desnitrificación</span></div>
+          <p><b>Importancia:</b> es esencial para formar proteínas y ADN.</p>
+        </div>
+        <dl class="facts"><dt>Tipo de ciclo</dt><dd>Gaseoso</dd><dt>N₂ en el aire</dt><dd><b>78%</b></dd><dt>Formas para plantas</dt><dd>NH₄⁺ y NO₃⁻</dd></dl>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-fosforo" aria-labelledby="t-fosforo" style="--c:var(--c-fosforo)" hidden>
+        <div class="body">
+          <h3>Ciclo del fósforo</h3>
+          <p>Es un ciclo sedimentario y lento: el fósforo no pasa por la atmósfera. Se libera de las rocas por erosión, llega al suelo y al agua, y es absorbido por plantas y animales.</p>
+          <div class="steps"><span>meteorización</span><i>→</i><span>absorción</span><i>→</i><span>descomposición</span><i>→</i><span>sedimentación</span></div>
+          <p><b>Importancia:</b> forma parte del ADN, el ATP (energía celular), los huesos y los dientes.</p>
+        </div>
+        <dl class="facts"><dt>Tipo de ciclo</dt><dd>Sedimentario</dd><dt>Fase atmosférica</dt><dd>No tiene</dd><dt>Forma para plantas</dt><dd><b>PO₄³⁻</b> (fosfato)</dd></dl>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-potasio" aria-labelledby="t-potasio" style="--c:var(--c-potasio)" hidden>
+        <div class="body">
+          <h3>Ciclo del potasio</h3>
+          <p>El potasio proviene de minerales de las rocas. Al desgastarse, se disuelve en el suelo, las plantas lo absorben por las raíces y vuelve al suelo cuando los organismos se descomponen.</p>
+          <div class="steps"><span>meteorización</span><i>→</i><span>absorción por raíces</span><i>→</i><span>retorno por descomposición</span><i>→</i><span>lixiviación</span></div>
+          <p><b>Importancia:</b> regula el agua en las células, activa enzimas y fortalece a las plantas.</p>
+        </div>
+        <dl class="facts"><dt>Tipo de ciclo</dt><dd>Sedimentario</dd><dt>Origen</dt><dd>Minerales (feldespatos, micas)</dd><dt>Forma para plantas</dt><dd><b>K⁺</b></dd></dl>
+      </div>
+    </div>
+
+    <div class="stack">
+      <h2>Cursos</h2>
+      <div class="courses">
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE-101]</span></span><h3>Ecología y ciclos biogeoquímicos</h3><p>Introducción a los flujos de materia y energía en ecosistemas.</p></div>
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE-210]</span></span><h3>Química y fertilidad de suelos</h3><p>Propiedades del suelo, nutrientes y su disponibilidad para cultivos.</p></div>
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE-330]</span></span><h3>Métodos de laboratorio</h3><p>Muestreo, análisis e interpretación de datos ambientales.</p></div>
+      </div>
+      <p>Cada curso puede tener su propia página con temario, lecturas, presentaciones y tareas descargables.</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="view" id="v-servicios" hidden>
+    <div class="stack">
+      <p class="eyebrow">Servicios</p>
+      <h1>Asesoría y capacitación</h1>
+      <p class="lead">Para productores, empresas, escuelas y organizaciones que necesitan apoyo técnico basado en evidencia. <span class="ph">[Ajusta según lo que ofrezcas]</span></p>
+    </div>
+    <div class="svc">
+      <div class="tile"><p class="eyebrow">Análisis</p><h3>Interpretación de análisis de suelo</h3><p>Lectura de resultados de laboratorio y recomendaciones de fertilización por cultivo.</p></div>
+      <div class="tile"><p class="eyebrow">Formación</p><h3>Talleres y cursos</h3><p>Capacitación para docentes, técnicos y productores sobre manejo de nutrientes y agua.</p></div>
+      <div class="tile"><p class="eyebrow">Proyectos</p><h3>Diagnóstico ambiental</h3><p>Estudios de calidad de suelo y agua para proyectos productivos o de conservación.</p></div>
+    </div>
+    <div class="btns"><a class="btn primary" href="#contacto">Solicitar información</a></div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="view" id="v-contacto" hidden>
+    <div class="stack">
+      <p class="eyebrow">Contacto</p>
+      <h1>Escríbeme</h1>
+    </div>
+    <div class="contact">
+      <div class="card-info">
+        <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">correo@ejemplo.edu</code><button type="button" id="copybtn">Copiar</button></div></div>
+        <div class="row"><span class="eyebrow">Oficina</span><p><span class="ph">[Edificio, cubículo]</span><br><span class="ph">[Institución, ciudad]</span></p></div>
+        <div class="row"><span class="eyebrow">Horario de asesorías</span><p><span class="ph">[Martes y jueves, 10:00–12:00]</span></p></div>
+        <div class="row"><span class="eyebrow">Estudiantes</span><p>Si te interesa hacer tesis o servicio social en el grupo, menciona tu carrera y semestre.</p></div>
+      </div>
+      <form id="cform" novalidate>
+        <label for="f-nombre">Nombre<input id="f-nombre" name="nombre" required autocomplete="name"></label>
+        <label for="f-correo">Correo<input id="f-correo" name="correo" type="email" required autocomplete="email"></label>
+        <label for="f-motivo">Motivo
+          <select id="f-motivo" name="motivo"><option>Estudiante / tesis</option><option>Colaboración de investigación</option><option>Asesoría o servicio</option><option>Otro</option></select>
+        </label>
+        <label for="f-msg">Mensaje<textarea id="f-msg" name="mensaje" required></textarea></label>
+        <button class="btn primary" type="submit">Enviar mensaje</button>
+        <p class="status" id="fstatus" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Juan Patishtan</span><span>Sitio de ejemplo · los textos en <span class="ph">[corchetes]</span> son marcadores</span></div>
+</footer>
+
+<script>
+(function () {
+  var views = ["inicio", "investigacion", "docencia", "servicios", "contacto"];
+  function show() {
+    var h = (location.hash || "").slice(1);
+    if (views.indexOf(h) < 0) h = "inicio";
+    views.forEach(function (v) { document.getElementById("v-" + v).hidden = v !== h; });
+    document.querySelectorAll("nav.main a").forEach(function (a) {
+      if (a.getAttribute("href") === "#" + h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+
+  var tabs = document.querySelectorAll('[role="tab"]');
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { select(t); });
+    t.addEventListener("keydown", function (e) {
+      var n = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!n) return;
+      var next = tabs[(i + n + tabs.length) % tabs.length]; select(next); next.focus();
+    });
+  });
+  select(tabs[0]);
+
+  document.getElementById("copybtn").addEventListener("click", function () {
+    var btn = this, txt = document.getElementById("mail").textContent;
+    function done(m) { btn.textContent = m; setTimeout(function () { btn.textContent = "Copiar"; }, 1600); }
+    try {
+      navigator.clipboard.writeText(txt).then(function () { done("Copiado"); }, function () { selectMail(); done("Selecciona y copia"); });
+    } catch (e) { selectMail(); done("Selecciona y copia"); }
+  });
+  function selectMail() { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+  document.getElementById("cform").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, st = document.getElementById("fstatus");
+    if (!f.checkValidity()) { st.textContent = "Completa nombre, un correo válido y el mensaje."; return; }
+    st.textContent = "Vista previa: en el sitio real este formulario enviaría tu mensaje.";
+  });
+})();
+</script>
+</body>
+</html>
