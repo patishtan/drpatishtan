@@ -146,6 +146,45 @@ figcaption.cap { font-size: .9rem; color: var(--muted); line-height: 1.45; }
 .badge b { color: var(--accent); font-weight: 700; }
 @media (max-width: 760px) { .cv-item { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
 
+/* cultivos */
+.crop-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.crop-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 6px; align-content: start; text-decoration: none; color: var(--ink); }
+a.crop-card:hover { border-color: var(--accent); }
+.crop-card .sci { font-style: italic; color: var(--muted); font-size: .95rem; }
+.crop-card .state { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+a.crop-card .state { color: var(--accent); }
+.crumbs { font-family: var(--mono); font-size: .8rem; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
+.crumbs a { color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.stats div { border-top: 2px solid var(--accent); padding-top: 10px; display: grid; gap: 2px; }
+.stats dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.stats dd { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.stats dd small { font-family: var(--body); font-weight: 400; font-size: .85rem; color: var(--muted); display: block; }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.tbl table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: .95rem; }
+.tbl th, .tbl td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tbl th { font-family: var(--display); font-weight: 500; font-size: .85rem; color: var(--muted); background: var(--soft); }
+.tbl td.n, .tbl th.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: .9rem; }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl .var { font-family: var(--display); font-weight: 500; white-space: nowrap; }
+.tbl .sub { color: var(--muted); font-size: .85rem; }
+.note { font-size: .9rem; color: var(--muted); }
+.acc { display: grid; gap: 8px; }
+.acc details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.acc summary { cursor: pointer; padding: 14px 16px; font-family: var(--display); font-weight: 500; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::after { content: "+"; font-family: var(--mono); color: var(--accent); }
+.acc details[open] summary::after { content: "–"; }
+.acc .body { padding: 0 16px 16px; display: grid; gap: 10px; }
+.acc .body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.doclinks { display: flex; gap: 10px; flex-wrap: wrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-family: var(--mono); font-size: .78rem; padding: 3px 8px; border-radius: 4px; background: var(--soft); }
+.chips span.iv { outline: 1px solid var(--accent); }
+.dark-fig { margin: 0; display: grid; gap: 8px; }
+.dark-fig img { display: block; width: 100%; height: auto; border-radius: 10px; background: #000; }
+@media (max-width: 760px) { .crop-cards { grid-template-columns: minmax(0, 1fr); } .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
@@ -208,6 +247,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <a href="#inicio">Inicio</a>
       <a href="#trayectoria">Trayectoria</a>
       <a href="#investigacion">Investigación</a>
+      <a href="#cultivos">Cultivos</a>
       <a href="#docencia">Docencia</a>
       <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
@@ -317,7 +357,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </figure>
     <div class="stack">
       <h2>Cultivos con los que he trabajado</h2>
-      <div class="crops"><span>Arroz</span><span>Caña de azúcar</span><span>Cártamo</span><span>Maíz</span><span>Soya</span><span>Sorgo</span></div>
+      <div class="crops"><span>Arroz</span><a href="#cana-de-azucar" style="text-decoration:none"><span>Caña de azúcar →</span></a><span>Cártamo</span><span>Maíz</span><span>Soya</span><span>Sorgo</span></div>
     </div>
     <div class="stack">
       <h2>Publicaciones</h2>
@@ -333,6 +373,167 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <li><p class="cite">Maathuis, F. J. M., Ahmad, I., &amp; <b>Patishtan, J.</b> (2014). Regulation of Na⁺ fluxes in plants. <i>Frontiers in Plant Science</i>, 5, 467.</p><p class="meta"><span>Revisión · salinidad</span><a href="https://doi.org/10.3389/fpls.2014.00467">DOI</a></p></li>
       </ul>
       <p>Lista completa en <a href="https://orcid.org/0000-0002-5632-8561">ORCID 0000-0002-5632-8561</a>. <span class="ph">[Google Scholar]</span> · <span class="ph">[ResearchGate]</span></p>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CULTIVOS: lista de cultivos. Para agregar uno nuevo, copia
+       una tarjeta <a class="crop-card"> y crea su sección abajo.
+       ====================================================== -->
+  <section class="view" id="v-cultivos" hidden>
+    <div class="stack">
+      <p class="eyebrow">Cultivos</p>
+      <h1>Cultivos que estudio</h1>
+      <p class="lead">Trabajo con seis cultivos de importancia para el trópico y subtrópico de México. Cada uno tiene su propia página con variedades evaluadas, métodos y resultados.</p>
+    </div>
+    <div class="crop-cards">
+      <a class="crop-card" href="#cana-de-azucar"><h3>Caña de azúcar</h3><span class="sci">Saccharum spp.</span><span class="state">Ver página →</span></a>
+      <div class="crop-card"><h3>Arroz</h3><span class="sci">Oryza sativa</span><span class="state">Página en preparación</span></div>
+      <div class="crop-card"><h3>Sorgo</h3><span class="sci">Sorghum bicolor</span><span class="state">Página en preparación</span></div>
+      <div class="crop-card"><h3>Maíz</h3><span class="sci">Zea mays</span><span class="state">Página en preparación</span></div>
+      <div class="crop-card"><h3>Soya</h3><span class="sci">Glycine max</span><span class="state">Página en preparación</span></div>
+      <div class="crop-card"><h3>Cártamo</h3><span class="sci">Carthamus tinctorius</span><span class="state">Página en preparación</span></div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CAÑA DE AZÚCAR — editar aquí el contenido de esta página.
+       Cada bloque <div class="stack"> es una subsección.
+       ====================================================== -->
+  <section class="view" id="v-cana-de-azucar" hidden>
+    <div class="stack">
+      <p class="crumbs"><a href="#cultivos">Cultivos</a><span>/</span><span>Caña de azúcar</span></p>
+      <h1>Caña de azúcar en la Planicie Huasteca</h1>
+      <p class="lead">Desde el Campo Experimental Las Huastecas del INIFAP evaluamos variedades, generamos recomendaciones de manejo y estudiamos la tolerancia a la salinidad de la caña de azúcar para la región cañera del sur de Tamaulipas, el oriente de San Luis Potosí y el norte de Veracruz.</p>
+    </div>
+
+    <figure class="band"><img src="img/canaveral.jpg" width="1200" height="800" loading="lazy" alt="Cañaveral alto junto a una franja de cobertura verde"></figure>
+
+    <!-- Datos clave (fuente: paquete tecnológico INIFAP Las Huastecas) -->
+    <dl class="stats">
+      <div><dt>Rendimiento comercial</dt><dd>76 t ha⁻¹<small>caña planta · 58 en soca · 55 en resoca</small></dd></div>
+      <div><dt>Potencial con riego</dt><dd>100–150 t ha⁻¹<small>tierra negra y suelos tipo barrote</small></dd></div>
+      <div><dt>Densidad objetivo</dt><dd>120–150 mil<small>tallos molederos por hectárea</small></dd></div>
+      <div><dt>Cosecha</dt><dd>14–16 meses<small>en planta · 12–14 meses en socas</small></dd></div>
+    </dl>
+
+    <div class="stack">
+      <h2>Líneas de trabajo</h2>
+      <div class="lines">
+        <article class="line" style="--k: var(--c-potasio)"><h3>Adaptación de variedades nuevas</h3><p>Evaluamos en campo el desempeño de variedades recientes en la región Huasteca: Mex 05-10, Mex 05-19, Mex 05-41, Mex 05-50, Mex 08-3387, Mex 08-3391, Mex 08-3394, Mex 08-3398 y Mex 08-3406.</p></article>
+        <article class="line" style="--k: var(--c-carbono)"><h3>Evaluación agroindustrial y DHE</h3><p>Caracterizamos ocho variedades según las directrices de Distinción, Homogeneidad y Estabilidad (DHE) de la UPOV y comparamos su rendimiento de caña y azúcar para identificar las mejores para la producción.</p></article>
+        <article class="line" style="--k: var(--c-agua)"><h3>Tolerancia a la salinidad</h3><p>Medimos cómo responden la parte aérea y la raíz a concentraciones crecientes de NaCl, para seleccionar materiales aptos para suelos salinos.</p></article>
+        <article class="line" style="--k: var(--c-nitrogeno)"><h3>Manejo de malezas</h3><p>Evaluamos la eficacia y fitotoxicidad de herbicidas postemergentes, entre ellos en la variedad Mex 68-1345, y definimos mezclas y condiciones de aplicación.</p></article>
+      </div>
+    </div>
+
+    <!-- Tabla de variedades: para cambiar un dato, edita la fila <tr> correspondiente -->
+    <div class="stack">
+      <h2>Comportamiento agroindustrial de ocho variedades</h2>
+      <p>Promedio de planta, soca y resoca 1 en el sitio de selección de cada variedad, ordenado por toneladas de azúcar por hectárea.</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Variedad<br><span class="sub">Progenitores</span></th><th>Origen</th><th>Condición</th><th class="n">Caña<br>(t ha⁻¹)</th><th class="n">Azúcar<br>(t ha⁻¹)</th><th class="n">Sacarosa<br>(%)</th><th class="n">Fibra<br>(%)</th></tr></thead>
+          <tbody>
+            <tr><td><span class="var">Mex 94-8</span><br><span class="sub">L 57-7 × SP 71-5574</span></td><td class="sub">CE INIFAP Tecomán, Colima</td><td>Riego</td><td class="n">132.00</td><td class="n">21.52</td><td class="n">16.29</td><td class="n">12.53</td></tr>
+            <tr><td><span class="var">Mex 96-35</span><br><span class="sub">Mex 64-649 × Mex 79-431</span></td><td class="sub">CRT de la Caña de Azúcar, ISP</td><td>Zona húmeda</td><td class="n">129.60</td><td class="n">18.51</td><td class="n">14.23</td><td class="n">11.66</td></tr>
+            <tr><td><span class="var">Mex 95-59</span><br><span class="sub">SP 72-4790 × ?</span></td><td class="sub">CIDCA Huasteca Potosina, CE El Estribo</td><td>Zona húmeda</td><td class="n">110.97</td><td class="n">16.34</td><td class="n">16.42</td><td class="n">11.74</td></tr>
+            <tr><td><span class="var">LTMex 94-2</span><br><span class="sub">CP 72-2086 × ?</span></td><td class="sub">CRT de la Caña de Azúcar, ISP</td><td>Zona húmeda</td><td class="n">131.50</td><td class="n">16.30</td><td class="n">12.42</td><td class="n">12.76</td></tr>
+            <tr><td><span class="var">Mex 91-662</span><br><span class="sub">Mex 74-1903 × ?</span></td><td class="sub">Asociación para la Mejora de la Caña, La Gloria</td><td>Zona húmeda</td><td class="n">110.58</td><td class="n">14.55</td><td class="n">14.87</td><td class="n">15.07</td></tr>
+            <tr><td><span class="var">MotzMex 01-403</span><br><span class="sub">MY 54-64 × Co 467</span></td><td class="sub">CE Regional Motzorongo</td><td>Zona húmeda</td><td class="n">87.55</td><td class="n">14.36</td><td class="n">16.43</td><td class="n">12.28</td></tr>
+            <tr><td><span class="var">ICPMex 92-1420</span><br><span class="sub">CP 59-22 × ?</span></td><td class="sub">CE Regional San Cristóbal</td><td>Temporal</td><td class="n">62.64</td><td class="n">9.52</td><td class="n">15.19</td><td class="n">14.50</td></tr>
+            <tr><td><span class="var">Mex 97-20</span><br><span class="sub">Mex 65-1418 × CP 72-2086</span></td><td class="sub">CE Regional San Cristóbal</td><td>Temporal (zona seca), solo resoca</td><td class="n">57.40</td><td class="n">6.52</td><td class="n">15.85</td><td class="n">14.94</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Fuente: fichas DHE (UPOV) de cada variedad, CIDCA A.C. Las cifras vienen de sitios y condiciones distintas, así que sirven para describir cada variedad más que para compararlas entre sí.</p>
+      <div class="doclinks"><a class="btn" href="docs/dhe-8-variedades-cana.pdf">Descargar fichas DHE (PDF, 2.3 MB)</a></div>
+    </div>
+
+    <figure class="dark-fig">
+      <h2>Respuesta a la salinidad</h2>
+      <img src="img/cana-salinidad-biomasa.jpg" width="1800" height="1013" loading="lazy" alt="Ilustración del peso de parte aérea y raíz de caña de azúcar con 0, 25, 50, 100, 150 y 200 mM de NaCl">
+      <figcaption class="cap">Peso de la parte aérea y de la raíz con 0 a 200 mM de NaCl, como porcentaje del testigo. Hasta 100 mM la parte aérea no difiere significativamente (77–100 %). Con 150 mM baja a 43 %, y con 200 mM la raíz baja a 38 % y ninguna de las 5 plantas conserva hoja verde. Media de 5 plantas ± error estándar; letras distintas indican diferencia significativa (ANOVA y Tukey, p &lt; 0.05). Datos propios, medición del 9 de junio de 2025.</figcaption>
+    </figure>
+
+    <!-- Paquete tecnológico: cada <details> es un tema desplegable -->
+    <div class="stack">
+      <h2>Paquete tecnológico</h2>
+      <p>Resumen de los componentes tecnológicos del INIFAP Las Huastecas para caña de azúcar perenne, de riego y temporal.</p>
+      <div class="acc">
+        <details><summary>Preparación del terreno</summary><div class="body"><ul>
+          <li><b>Subsuelo:</b> arado de cinceles para romper la compactación que dejan cosechadoras y camiones.</li>
+          <li><b>Barbecho:</b> arado a 25–30 cm para voltear la capa superior y eliminar restos de soca o resoca.</li>
+          <li><b>Cruza y rastra:</b> desmenuzan terrones y dejan una cama suelta para bordear y sembrar.</li>
+          <li><b>Nivelación, surcado y trazo de riego:</b> necesarios en siembras con riego.</li>
+        </ul></div></details>
+        <details><summary>Siembra y variedades</summary><div class="body"><ul>
+          <li>10–12 t ha⁻¹ de semilla de 6 a 9 meses de edad, libre de gusano barrenador, trozada después de depositarla.</li>
+          <li>Periodo óptimo de siembra de mayo a septiembre; con riego, algunos productores de Cd. Valles siembran de enero a marzo.</li>
+          <li>Rodado, aspersión y temporal: surcos a 1.4 m, de 35–40 cm de profundidad, en doble cordón.</li>
+          <li>Goteo: doble hilera tipo piña a 1.8–2.0 m entre centros, 40–50 cm entre hileras.</li>
+          <li>Variedades recomendadas para la Planicie Huasteca: CP 72-2086 y NCo 310, con ciclo de 496–550 días en planta.</li>
+        </ul></div></details>
+        <details><summary>Riego</summary><div class="body"><ul>
+          <li>En germinación, riegos ligeros de 8–14 cm de lámina según suelo y clima.</li>
+          <li>De 6 a 10 riegos por ciclo; los dos primeros tras cada fertilización y después cada 3 a 4 semanas, según la disponibilidad de agua.</li>
+        </ul></div></details>
+        <details><summary>Fertilización y fertirrigación</summary><div class="body"><ul>
+          <li>Planta con riego: 500 kg ha⁻¹ de 22-11-11-6 al fondo del surco más 300 kg de sulfato de amonio (140-55-55).</li>
+          <li>Socas: 500 kg ha⁻¹ de 22-11-11-6 en banda dos meses después del corte (110-55-55). Temporal: 100-138-55 al fondo del surco.</li>
+          <li>En suelos alcalinos, 20–35 kg ha⁻¹ de sulfato de zinc monohidratado, ajustando con análisis de suelo.</li>
+          <li>Goteo: 200–300 unidades de N, 90–130 de P y 200–300 de K, aplicadas por fertirrigación en cuatro etapas: agua sola, ácidos para llevar el pH a 5.5–6.5, fertilizantes solubles con micronutrientes y lavado final.</li>
+        </ul></div></details>
+        <details><summary>Plagas, enfermedades y malezas</summary><div class="body"><ul>
+          <li>Sin enfermedades de importancia económica, salvo el carbón en NCo 310, en aumento en el sur de Tamaulipas.</li>
+          <li>Plagas principales: mosca pinta (<i>Aeneolamia postica</i>), gusano barrenador (<i>Diatraea</i> y <i>Eoreuma</i>), rata y chinche de encaje. Para barrenador se usa control biológico con <i>Trichogramma</i> spp.</li>
+          <li>Malezas: zacate Johnson, zacate Guinea, coquillo y numerosas de hoja ancha. Mezclas postemergentes evaluadas: ametrina + atrazina + diurón (2.5 kg ha⁻¹), ametrina + atrazina (2.5 kg ha⁻¹) o ametrina + 2,4-D amina (6 L ha⁻¹), a 200 L ha⁻¹ con pH ajustado a 5.5.</li>
+        </ul></div></details>
+      </div>
+      <div class="doclinks"><a class="btn primary" href="docs/paquete-tecnologico-cana-de-azucar.pdf">Descargar paquete tecnológico (PDF, 1.5 MB)</a></div>
+    </div>
+
+    <!-- Protocolo de muestreo -->
+    <div class="stack">
+      <h2>Muestreo estándar de parcelas</h2>
+      <p>Muestreamos en cinco puntos por parcela (cinco de oros). En cada punto se cuentan los tallos molederos en 10 m lineales y se toman 10 tallos al azar para medir:</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Variable</th><th>Unidad</th></tr></thead>
+          <tbody>
+            <tr><td>Población de tallos y peso de caña por metro lineal</td><td>tallos m⁻¹ · kg m⁻¹</td></tr>
+            <tr><td>Índice de clorofila</td><td>SPAD</td></tr>
+            <tr><td>Peso y longitud del tallo</td><td>kg · m</td></tr>
+            <tr><td>Número de canutos; diámetro y longitud basal, intermedia y apical</td><td># · cm</td></tr>
+            <tr><td>Canutos dañados y larvas de barrenador</td><td>#</td></tr>
+            <tr><td>Grados Brix basal, intermedio y apical</td><td>%</td></tr>
+            <tr><td>Conductividad eléctrica y humedad del suelo</td><td>dS m⁻¹ · %</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Kit de muestreo:</b> báscula, bolsas de papel, cinta masking, cuatro cuadros para maleza, dos mesas, formatos, lápices, marcadores, pala, flexómetro, regla métrica, SPAD, tablas de apoyo, tres botes y vernier.</p>
+      <p>Para obtener el formato de captura, escribe a <code>patishtan.juan@gmail.com</code> con una breve explicación de tu interés.</p>
+    </div>
+
+    <!-- Colección de variedades: lista generada desde el archivo de Excel -->
+    <div class="stack">
+      <h2>Colección de variedades en evaluación</h2>
+      <p>97 materiales, entre variedades comerciales, líneas experimentales y 9 cruzas, de los cuales 6 son de semilla in vitro (marcados con borde).</p>
+      <details class="acc"><summary style="cursor:pointer;font-family:var(--display);font-weight:500">Ver la lista completa</summary><div class="chips" style="margin-top:12px"><span>ColMex 95-1413</span><span>CL 47-143 x CO 453</span><span>RB 85-5113</span><span>ColMex 98-12</span><span>CP 52-68 x CO 453</span><span>RB 84-5257</span><span>ColMex 00-228</span><span>Mex 55-131 x Mex 75-1632</span><span>ColMex 98-19</span><span>Mex 57-1285 x Mex 57-473</span><span>PR 87-2078 x NA 63-90</span><span>Mex 59-658 x CO-453</span><span>ColMex 98-100</span><span>ColMex 01-04</span><span>Mex 60-1418 x Mex 75-17-05</span><span>ColMex 00-217</span><span>ColMex 95-27</span><span>LCP 81-10 x POJ 221</span><span>Mex 95-03</span><span>Mex 95-59</span><span>Mex 96-60</span><span>EMex 00-29</span><span>EMex 01-21</span><span>EMex 01-323</span><span>EMex 02-05</span><span>EMex 02-59</span><span>EMex 03-198</span><span>CP 72-2086</span><span>CP 88-1165</span><span>IMMex 98-13</span><span>IMMex 95-25</span><span>ATEMex 96-40</span><span>Co 290</span><span>LCP 84-385</span><span>Mex 68-P-23</span><span>Mex 79-431</span><span>CP-29-116 x Mex-69-1426</span><span>Mex 68-1345</span><span>XMex 91-917</span><span>RD 7511</span><span>CP 88-1508</span><span>NCO 331</span><span>IMMex 91-589</span><span>NCO 0290</span><span>NCO 310</span><span>MOTZMex 01-403</span><span>Mex 94-8</span><span>Mex 96-35</span><span>Mex 91-662</span><span>LTMex 94-2</span><span>Mex 97-20</span><span>ICPMex 92-1240</span><span>Mex 05-19</span><span>Mex 05-41</span><span>Mex 05-10</span><span>Mex 05-50</span><span>Mex 08-3406</span><span>Mex 08-3394</span><span>Mex 08-3398</span><span>Mex 08-33-91</span><span>Mex 08-3387</span><span>EMex 05-225</span><span>Mex 96-52</span><span>EMex 01-179</span><span>Emex 06-159</span><span>Mex 07-2253</span><span>Mex 07-2219</span><span>Mex 07-2200</span><span>Mex 08-2376</span><span>Mex 08-2209</span><span>CG 97-97</span><span>Mex 06-23</span><span>EMEX 05-222</span><span>Mex 10-2165</span><span>CG 02-163</span><span>LGMex 92-156</span><span>Mex 69-290</span><span>ITV 92-1424</span><span>MEX 09-66</span><span>MEX 09-208</span><span>MEX 09-289</span><span>MEX 09-212</span><span>MEX 09-321</span><span>MEX 09-132</span><span>MEX 09-93</span><span>MEX 09-341</span><span>MEX 09-312</span><span>MEX 09-333</span><span class="iv">CP-05-1201 (IN VITRO)</span><span class="iv">CP 95-1252 (IN VITRO)</span><span class="iv">CP 95-59 (IN VITRO)</span><span class="iv">CP 92-1420 (IN VITRO)</span><span class="iv">CP 72-2086 (IN VITRO)</span><span class="iv">Mex 69-290 (IN VITRO)</span><span>Mex 09-219</span><span>Mex 09-2216</span><span>Mex 10-2117</span></div></details>
+    </div>
+
+    <div class="stack">
+      <h2>Producción de semilla</h2>
+      <p>Durante el programa de producción de semilla para cañeros de la región Huasteca, ya concluido, ofrecimos semilla in vitro de CP 05-1201, CP 96-1252, Mex 95-59, CP 92-1420, CP 72-2086 y Mex 69-290, que garantiza pureza genética y sanidad, además de semilla convencional de ColMex 94-8.</p>
+    </div>
+
+    <div class="stack">
+      <h2>Publicaciones sobre caña de azúcar</h2>
+      <ul class="plain pubs">
+        <li><p class="cite"><b>Patishtan Pérez, J.</b>, et al. (2026). Effectiveness and phytotoxicity of selective post-emergent herbicides in the sugarcane variety Mex 68-1345. <i>Agro Productividad</i>.</p><p class="meta"><a href="https://doi.org/10.32854/mrybby30">DOI</a></p></li>
+        <li><p class="cite"><b>Patishtan-Pérez, J.</b>, et al. (2025). Evaluation of the efficacy and phytotoxicity of synthetic chemical herbicides on sugarcane (<i>Saccharum</i> spp. L.) in San Luis Potosí, Mexico. <i>Agro Productividad</i>.</p><p class="meta"><a href="https://doi.org/10.32854/4fcjc312">DOI</a></p></li>
+        <li><p class="cite"><b>Patishtan-Pérez, J.</b>, et al. (2023). Rasgos agroindustriales de variedades de caña de azúcar. <i>Ciencia Latina Revista Científica Multidisciplinar</i>.</p><p class="meta"><a href="https://doi.org/10.37811/cl_rcm.v7i5.8545">DOI</a></p></li>
+      </ul>
     </div>
   </section>
 
@@ -439,7 +640,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </div>
     <div class="contact">
       <div class="card-info">
-        <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">correo@ejemplo.edu</code><button type="button" id="copybtn">Copiar</button></div></div>
+        <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">patishtan.juan@gmail.com</code><button type="button" id="copybtn">Copiar</button></div></div>
         <div class="row"><span class="eyebrow">Oficina</span><p>INIFAP, Campo Experimental Las Huastecas<br>Villa Cuauhtémoc, Altamira, Tamaulipas, México</p></div>
         <div class="row"><span class="eyebrow">Horario de asesorías</span><p><span class="ph">[Martes y jueves, 10:00–12:00]</span></p></div>
         <div class="row"><span class="eyebrow">Estudiantes</span><p>Si te interesa hacer tesis o servicio social en el grupo, menciona tu carrera y semestre.</p></div>
@@ -464,13 +665,14 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
 <script>
 (function () {
-  var views = ["inicio", "trayectoria", "investigacion", "docencia", "servicios", "contacto"];
+  var views = ["inicio", "trayectoria", "investigacion", "cultivos", "cana-de-azucar", "docencia", "servicios", "contacto"];
   function show() {
     var h = (location.hash || "").slice(1);
     if (views.indexOf(h) < 0) h = "inicio";
     views.forEach(function (v) { document.getElementById("v-" + v).hidden = v !== h; });
     document.querySelectorAll("nav.main a").forEach(function (a) {
-      if (a.getAttribute("href") === "#" + h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      var navKey = h === "cana-de-azucar" ? "cultivos" : h;
+      if (a.getAttribute("href") === "#" + navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     window.scrollTo(0, 0);
   }
