@@ -199,6 +199,17 @@ a.crop-card .state { color: var(--accent); }
 .acc .body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
 .doclinks { display: flex; gap: 10px; flex-wrap: wrap; }
 .deck { display: grid; gap: 12px; }
+.unit { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 16px; }
+.unit-head { display: grid; gap: 4px; }
+.unit-n { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.unit h3 { font-size: 1.45rem; font-weight: 700; }
+.unit h4 { font-family: var(--display); font-weight: 500; font-size: 1rem; margin: 0 0 8px; color: var(--h2); }
+.unit-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.subtopics { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.subtopics li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
+.subtopics span { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
+.deck .frame.doc { aspect-ratio: auto; height: min(80vh, 900px); }
+@media (max-width: 760px) { .unit-cols { grid-template-columns: minmax(0, 1fr); } .deck .frame.doc { height: 70vh; } }
 .deck .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
 .deck iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .deck .frame:fullscreen { border-radius: 0; border: 0; }
@@ -634,7 +645,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="stack">
       <p class="eyebrow">Docencia</p>
       <h1>Docencia y capacitación</h1>
-      <p class="lead">Imparto la materia de Agroecología y cursos de capacitación para técnicos y productores. Aquí están los temas, materiales y presentaciones.</p>
+      <p class="lead">Imparto la materia de Agroecología en el TecNM Campus Altamira y cursos de capacitación para técnicos y productores. Aquí están las unidades, los manuales y las presentaciones.</p>
       <div class="jump btns">
         <button class="btn" type="button" data-jump="agroecologia">Agroecología</button>
         <button class="btn" type="button" data-jump="cursos">Cursos</button>
@@ -642,26 +653,57 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       </div>
     </div>
 
-    <!-- MATERIA: AGROECOLOGÍA -->
+    <!-- ======================================================
+         MATERIA: AGROECOLOGÍA (TecNM Campus Altamira)
+         Cada unidad es un bloque <article class="unit">. Para agregar
+         la Unidad 2, copia el bloque de la Unidad 1 y cambia textos y PDF.
+         Para agregar la presentación, cambia el marcador [presentación].
+         ====================================================== -->
     <div class="stack" id="agroecologia">
       <p class="eyebrow">Materia</p>
       <h2>Agroecología</h2>
-      <p class="meta"><span class="ph">[Institución]</span> · <span class="ph">[Carrera y semestre]</span> · <span class="ph">[Periodo]</span></p>
-      <p>Estudia la parcela como un ecosistema: cómo los ciclos de nutrientes, el suelo, la diversidad de cultivos y el manejo determinan la productividad y la resiliencia del sistema agrícola.</p>
-      <p class="meta">Temas del curso <span class="ph">[confirma o cambia los temas]</span></p>
-      <div class="acc">
-        <details><summary>Tema 1 · Fundamentos de la agroecología</summary><div class="body"><p>La parcela como agroecosistema: componentes, interacciones y los principios que guían un manejo sostenible.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 2 · Ciclos biogeoquímicos</summary><div class="body"><p>Cómo circulan el agua, el carbono, el nitrógeno, el fósforo y el potasio entre la atmósfera, el suelo y los seres vivos. Incluye el explorador interactivo de abajo.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 3 · Suelo vivo y fertilidad</summary><div class="body"><p>Materia orgánica, vida del suelo y nutrición de los cultivos; cómo leer un análisis de suelo.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 4 · Diversificación del sistema</summary><div class="body"><p>Rotación de cultivos, asociaciones y abonos verdes para cortar ciclos de plagas y aportar nitrógeno.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 5 · Agricultura de conservación</summary><div class="body"><p>Labranza mínima, siembra directa y cobertura del suelo para reducir la erosión y conservar humedad.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 6 · Manejo agroecológico de plagas, enfermedades y malezas</summary><div class="body"><p>Prevención, control biológico y uso racional de agroquímicos dentro de un manejo integrado.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-        <details><summary>Tema 7 · Agua, estrés y resiliencia</summary><div class="body"><p>Sequía y salinidad, genotipos tolerantes y prácticas para adaptar los cultivos al clima.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
-      </div>
+      <p class="meta">Tecnológico Nacional de México, Campus Altamira · Producción Pecuaria Tropical · agosto–diciembre 2026</p>
+      <p>El curso estudia el rancho, la parcela y el territorio como ecosistemas manejados por personas, con flujos de energía, ciclos de nutrientes, interacciones entre especies y relaciones sociales y económicas. Todas las ideas se aterrizan en ejemplos de producción pecuaria tropical del noreste de México.</p>
+
+      <article class="unit" id="agro-u1">
+        <div class="unit-head"><span class="unit-n">Unidad 1</span><h3>Introducción a la agroecología</h3></div>
+        <p><b>Competencia:</b> explica el concepto, los principios y el campo de estudio de la agroecología, y los utiliza para analizar de manera crítica un sistema de producción agropecuario tropical en sus dimensiones ecológica, económica y social.</p>
+        <div class="unit-cols">
+          <div>
+            <h4>Temas</h4>
+            <ol class="subtopics">
+              <li><span>1.1</span>Concepto, principios y campo de estudio de la agroecología</li>
+              <li><span>1.2</span>La agroecología como ciencia, práctica y movimiento social</li>
+              <li><span>1.3</span>Relación entre agroecología, agricultura y sustentabilidad</li>
+              <li><span>1.4</span>Papel del agrónomo en la construcción de sistemas agroalimentarios sustentables</li>
+            </ol>
+          </div>
+          <div>
+            <h4>Actividades</h4>
+            <ol class="subtopics">
+              <li><span>A1</span>Mi rancho bajo la lupa de los 10 elementos de la FAO</li>
+              <li><span>A2</span>Zonificación agroecológica del rancho</li>
+              <li><span>A3</span>Debate estructurado: “La agroecología puede alimentar a la población de México”</li>
+            </ol>
+          </div>
+        </div>
+        <div class="deck">
+          <h4>Manual de la unidad</h4>
+          <div class="frame doc" id="doc-agro-u1"><iframe src="docs/agroecologia/unidad-1-manual.pdf#view=FitH&amp;pagemode=none" title="Manual de Agroecología, Unidad 1" loading="lazy" allowfullscreen></iframe></div>
+          <div class="doclinks">
+            <button class="btn primary" type="button" onclick="var f=document.getElementById('doc-agro-u1');(f.requestFullscreen||f.webkitRequestFullscreen).call(f)">Pantalla completa</button>
+            <a class="btn" href="docs/agroecologia/unidad-1-manual.pdf" target="_blank" rel="noopener">Abrir o descargar (PDF, 14 páginas, 0.9 MB)</a>
+          </div>
+          <p class="meta">Presentación de la unidad: <span class="ph">[presentación, se agregará]</span></p>
+        </div>
+      </article>
+
+      <p class="meta">Las siguientes unidades se agregarán conforme avance el curso.</p>
     </div>
 
     <div class="stack">
-      <h3>Tema 2 · Explorador de ciclos biogeoquímicos</h3>
+      <p class="eyebrow">Recurso interactivo</p>
+      <h3>Explorador de ciclos biogeoquímicos</h3>
       <p>Elige un ciclo para ver cómo se mueve cada elemento entre la atmósfera, el suelo, el agua y los seres vivos.</p>
     </div>
 
