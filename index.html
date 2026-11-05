@@ -78,6 +78,10 @@ section.view { display: grid; gap: 48px; }
 /* home hero */
 .hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; align-items: center; }
 .hero .stack > * { min-width: 0; }
+.portrait { margin: 0; width: 100%; max-width: 320px; justify-self: center; display: grid; gap: 10px; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); background: var(--soft); }
+.portrait figcaption { display: flex; justify-content: center; gap: 6px; }
+.portrait figcaption span { font-family: var(--display); font-weight: 700; font-size: .8rem; color: var(--surface); background: var(--c); border-radius: 999px; min-width: 2.2rem; text-align: center; padding: 3px 8px; }
 .ring { width: 100%; max-width: 340px; justify-self: center; }
 .ring text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
 .ring .orbit { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 5; }
@@ -160,7 +164,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
 @media (max-width: 760px) {
   .hero, .contact { grid-template-columns: minmax(0, 1fr); }
-  .ring { max-width: 240px; order: -1; }
+  .ring, .portrait { max-width: 240px; order: -1; }
   .grid3, .courses, .svc, .lines { grid-template-columns: minmax(0, 1fr); }
   .panel { grid-template-columns: minmax(0, 1fr); }
   .facts { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 16px; }
@@ -201,18 +205,10 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
           <a class="btn" href="#investigacion">Ver mi investigación</a>
         </div>
       </div>
-      <svg class="ring" viewBox="0 0 340 340" role="img" aria-label="Los cinco ciclos biogeoquímicos: agua, carbono, nitrógeno, fósforo y potasio">
-        <circle class="orbit" cx="170" cy="170" r="120"/>
-        <g class="spin">
-          <g transform="translate(170 50)"><circle r="28" fill="var(--c-agua)"/><text y="6" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:17px;font-weight:700">H₂O</text></g>
-          <g transform="translate(284 133)"><circle r="28" fill="var(--c-carbono)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">C</text></g>
-          <g transform="translate(240 267)"><circle r="28" fill="var(--c-nitrogeno)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">N</text></g>
-          <g transform="translate(100 267)"><circle r="28" fill="var(--c-fosforo)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">P</text></g>
-          <g transform="translate(56 133)"><circle r="28" fill="var(--c-potasio)"/><text y="7" text-anchor="middle" style="fill:#fff;font-family:var(--display);font-size:22px;font-weight:700">K</text></g>
-        </g>
-        <text x="170" y="166" text-anchor="middle">atmósfera ⇄ suelo</text>
-        <text x="170" y="184" text-anchor="middle">⇄ seres vivos</text>
-      </svg>
+      <figure class="portrait">
+        <img src="juan-patishtan.jpg" width="720" height="900" alt="Juan Patishtan con toga y birrete de doctorado">
+        <figcaption><span style="--c:var(--c-agua)">H₂O</span><span style="--c:var(--c-carbono)">C</span><span style="--c:var(--c-nitrogeno)">N</span><span style="--c:var(--c-fosforo)">P</span><span style="--c:var(--c-potasio)">K</span></figcaption>
+      </figure>
     </div>
 
     <div class="grid3">
