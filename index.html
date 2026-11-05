@@ -199,17 +199,41 @@ a.crop-card .state { color: var(--accent); }
 .acc .body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
 .doclinks { display: flex; gap: 10px; flex-wrap: wrap; }
 .deck { display: grid; gap: 12px; }
-.unit { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 16px; }
-.unit-head { display: grid; gap: 4px; }
+.course-head { display: grid; gap: 12px; }
+.course-meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; }
+.course-meta div { display: grid; gap: 2px; }
+.course-meta dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.course-meta dd { margin: 0; font-family: var(--display); font-weight: 500; color: var(--ink); }
+.units-title { margin-top: 8px; }
+.units { display: grid; gap: 12px; }
+.unit { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.unit > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; gap: 6px 16px; padding: 18px 22px; }
+.unit > summary::-webkit-details-marker { display: none; }
+.unit > summary::after { content: "+"; font-family: var(--mono); color: var(--accent); grid-column: 4; }
+.unit[open] > summary::after { content: "–"; }
+.unit[open] > summary { border-bottom: 1px solid var(--line); }
 .unit-n { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-.unit h3 { font-size: 1.45rem; font-weight: 700; }
+.unit-t { font-family: var(--display); font-weight: 700; font-size: 1.25rem; color: var(--h3); }
+.unit-has { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.unit.soon { display: flex; gap: 16px; align-items: baseline; padding: 16px 22px; border-style: dashed; background: transparent; }
+.unit.soon .unit-t { color: var(--muted); font-weight: 500; font-size: 1.05rem; }
+.unit-body { padding: 20px 22px 22px; display: grid; gap: 18px; }
 .unit h4 { font-family: var(--display); font-weight: 500; font-size: 1rem; margin: 0 0 8px; color: var(--h2); }
 .unit-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .subtopics { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .subtopics li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
 .subtopics span { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
-.deck .frame.doc { aspect-ratio: auto; height: min(80vh, 900px); }
-@media (max-width: 760px) { .unit-cols { grid-template-columns: minmax(0, 1fr); } .deck .frame.doc { height: 70vh; } }
+.viewer { display: grid; gap: 12px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { font-family: var(--display); font-size: .95rem; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--h1); border-color: var(--h1); color: var(--bg); }
+.viewer .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #0F1B2E; }
+.viewer.is-pdf .frame { aspect-ratio: auto; height: min(80vh, 900px); background: #fff; }
+.viewer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.viewer .frame:fullscreen { border: 0; border-radius: 0; }
+.viewer .hint { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.viewer.is-pdf .hint { display: none; }
+@media (max-width: 760px) { .unit-cols { grid-template-columns: minmax(0, 1fr); } .unit > summary { grid-template-columns: minmax(0, 1fr) auto; } .unit > summary::after { grid-column: 2; grid-row: 1; } .unit-has { grid-column: 1; } .viewer.is-pdf .frame { height: 70vh; } }
 .deck .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
 .deck iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .deck .frame:fullscreen { border-radius: 0; border: 0; }
@@ -649,50 +673,61 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
     <!-- ======================================================
          MATERIA: AGROECOLOGÍA (TecNM Campus Altamira)
-         Cada unidad es un bloque <article class="unit">. Para agregar
-         la Unidad 2, copia el bloque de la Unidad 1 y cambia textos y PDF.
-         Para agregar la presentación, cambia el marcador [presentación].
+         CÓMO AGREGAR UNA UNIDAD NUEVA:
+         1. Sube sus archivos a docs/agroecologia/ con estos nombres:
+            unidad-2-presentacion.html  y  unidad-2-manual.pdf
+         2. Copia el bloque <details class="unit"> de la Unidad 1,
+            pégalo debajo, cambia el número (2), el título, la
+            competencia, los temas, las actividades y los nombres de archivo.
+         3. Quita el atributo "open" de la unidad anterior para que la
+            más reciente sea la que aparece abierta.
          ====================================================== -->
     <div class="stack" id="agroecologia">
-      <p class="eyebrow">Materia</p>
-      <h2>Agroecología</h2>
-      <p class="meta">Tecnológico Nacional de México, Campus Altamira · Producción Pecuaria Tropical · agosto–diciembre 2026</p>
-      <p>El curso estudia el rancho, la parcela y el territorio como ecosistemas manejados por personas, con flujos de energía, ciclos de nutrientes, interacciones entre especies y relaciones sociales y económicas. Todas las ideas se aterrizan en ejemplos de producción pecuaria tropical del noreste de México.</p>
+      <div class="course-head">
+        <p class="eyebrow">Materia · Tecnológico Nacional de México, Campus Altamira</p>
+        <h2>Agroecología</h2>
+        <dl class="course-meta"><div><dt>Programa</dt><dd>Producción Pecuaria Tropical</dd></div><div><dt>Periodo</dt><dd>agosto–diciembre 2026</dd></div><div><dt>Docente</dt><dd>Juan Patishtan Pérez, PhD</dd></div></dl>
+        <p>El curso estudia el rancho, la parcela y el territorio como ecosistemas manejados por personas, con flujos de energía, ciclos de nutrientes, interacciones entre especies y relaciones sociales y económicas. Todas las ideas se aterrizan en ejemplos de producción pecuaria tropical del noreste de México.</p>
+      </div>
 
-      <article class="unit" id="agro-u1">
-        <div class="unit-head"><span class="unit-n">Unidad 1</span><h3>Introducción a la agroecología</h3></div>
-        <p><b>Competencia:</b> explica el concepto, los principios y el campo de estudio de la agroecología, y los utiliza para analizar de manera crítica un sistema de producción agropecuario tropical en sus dimensiones ecológica, económica y social.</p>
-        <div class="unit-cols">
-          <div>
-            <h4>Temas</h4>
-            <ol class="subtopics">
-              <li><span>1.1</span>Concepto, principios y campo de estudio de la agroecología</li>
-              <li><span>1.2</span>La agroecología como ciencia, práctica y movimiento social</li>
-              <li><span>1.3</span>Relación entre agroecología, agricultura y sustentabilidad</li>
-              <li><span>1.4</span>Papel del agrónomo en la construcción de sistemas agroalimentarios sustentables</li>
-            </ol>
-          </div>
-          <div>
-            <h4>Actividades</h4>
-            <ol class="subtopics">
-              <li><span>A1</span>Mi rancho bajo la lupa de los 10 elementos de la FAO</li>
-              <li><span>A2</span>Zonificación agroecológica del rancho</li>
-              <li><span>A3</span>Debate estructurado: “La agroecología puede alimentar a la población de México”</li>
-            </ol>
-          </div>
-        </div>
-        <div class="deck">
-          <h4>Manual de la unidad</h4>
-          <div class="frame doc" id="doc-agro-u1"><iframe src="docs/agroecologia/unidad-1-manual.pdf#view=FitH&amp;pagemode=none" title="Manual de Agroecología, Unidad 1" loading="lazy" allowfullscreen></iframe></div>
-          <div class="doclinks">
-            <button class="btn primary" type="button" onclick="var f=document.getElementById('doc-agro-u1');(f.requestFullscreen||f.webkitRequestFullscreen).call(f)">Pantalla completa</button>
-            <a class="btn" href="docs/agroecologia/unidad-1-manual.pdf" target="_blank" rel="noopener">Abrir o descargar (PDF, 14 páginas, 0.9 MB)</a>
-          </div>
-          <p class="meta">Presentación de la unidad: <span class="ph">[presentación, se agregará]</span></p>
-        </div>
-      </article>
+      <h3 class="units-title">Unidades del curso</h3>
+      <div class="units">
 
-      <p class="meta">Las siguientes unidades se agregarán conforme avance el curso.</p>
+        <!-- UNIDAD 1 -->
+        <details class="unit" id="agro-u1" open>
+          <summary><span class="unit-n">Unidad 1</span><span class="unit-t">Introducción a la agroecología</span><span class="unit-has">Presentación · Manual</span></summary>
+          <div class="unit-body">
+            <p><b>Competencia:</b> explica el concepto, los principios y el campo de estudio de la agroecología, y los utiliza para analizar de manera crítica un sistema de producción agropecuario tropical en sus dimensiones ecológica, económica y social.</p>
+            <div class="unit-cols">
+              <div><h4>Temas</h4><ol class="subtopics">
+                <li><span>1.1</span>Concepto, principios y campo de estudio de la agroecología</li>
+                <li><span>1.2</span>La agroecología como ciencia, práctica y movimiento social</li>
+                <li><span>1.3</span>Relación entre agroecología, agricultura y sustentabilidad</li>
+                <li><span>1.4</span>Papel del agrónomo en la construcción de sistemas agroalimentarios sustentables</li>
+              </ol></div>
+              <div><h4>Actividades</h4><ol class="subtopics">
+                <li><span>A1</span>Mi rancho bajo la lupa de los 10 elementos de la FAO</li>
+                <li><span>A2</span>Zonificación agroecológica del rancho</li>
+                <li><span>A3</span>Debate estructurado: “La agroecología puede alimentar a la población de México”</li>
+              </ol></div>
+            </div>
+            <div class="viewer" data-pres="docs/agroecologia/unidad-1-presentacion.html" data-pdf="docs/agroecologia/unidad-1-manual.pdf">
+              <div class="seg" role="group" aria-label="Material de la Unidad 1">
+                <button type="button" data-show="pres" aria-pressed="true">Presentación · 19 diapositivas</button>
+                <button type="button" data-show="pdf" aria-pressed="false">Manual · PDF, 14 páginas</button>
+              </div>
+              <div class="frame"><iframe title="Material de la Unidad 1" loading="lazy" allowfullscreen></iframe></div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener">Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+          </div>
+        </details>
+
+        <div class="unit soon"><span class="unit-n">Unidad 2</span><span class="unit-t">Próximamente</span></div>
+      </div>
     </div>
 
     <!-- OCULTO POR AHORA: explorador de ciclos, Cursos y Presentaciones. Para mostrarlo de nuevo, borra el atributo hidden de la línea siguiente. -->
@@ -855,6 +890,24 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
   }
   window.addEventListener("hashchange", show);
   show();
+
+  document.querySelectorAll(".viewer").forEach(function (v) {
+    var fr = v.querySelector("iframe"), open = v.querySelector('[data-act="open"]');
+    function show(kind) {
+      var url = kind === "pdf" ? v.dataset.pdf + "#view=FitH&pagemode=none" : v.dataset.pres;
+      if (fr.getAttribute("src") !== url) fr.setAttribute("src", url);
+      open.href = kind === "pdf" ? v.dataset.pdf : v.dataset.pres;
+      open.textContent = kind === "pdf" ? "Abrir o descargar el PDF" : "Abrir en otra pestaña";
+      v.classList.toggle("is-pdf", kind === "pdf");
+      v.querySelectorAll(".seg button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.show === kind ? "true" : "false"); });
+    }
+    v.querySelectorAll(".seg button").forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.show); }); });
+    v.querySelector('[data-act="full"]').addEventListener("click", function () {
+      var f = v.querySelector(".frame"); var r = f.requestFullscreen || f.webkitRequestFullscreen; if (r) r.call(f);
+      setTimeout(function () { try { fr.contentWindow.focus(); } catch (e) {} }, 300);
+    });
+    show("pres");
+  });
 
   document.querySelectorAll("[data-jump]").forEach(function (b) {
     b.addEventListener("click", function () { document.getElementById(b.getAttribute("data-jump")).scrollIntoView({ behavior: "smooth" }); });
