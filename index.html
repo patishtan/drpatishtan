@@ -178,6 +178,10 @@ a.crop-card .state { color: var(--accent); }
 .acc .body { padding: 0 16px 16px; display: grid; gap: 10px; }
 .acc .body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
 .doclinks { display: flex; gap: 10px; flex-wrap: wrap; }
+.deck { display: grid; gap: 12px; }
+.deck .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
+.deck iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.deck .frame:fullscreen { border-radius: 0; border: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chips span { font-family: var(--mono); font-size: .78rem; padding: 3px 8px; border-radius: 4px; background: var(--soft); }
 .chips span.iv { outline: 1px solid var(--accent); }
@@ -592,7 +596,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       </ul>
       <h3>Presentaciones</h3>
       <ul class="plain pubs">
-        <li><p class="cite"><b>Patishtan Pérez, J.</b> (2026, 15 de octubre). Caña de azúcar: yema individual, evaluación de genotipos y el paso hacia la genómica. Congreso azucarero.</p><p class="meta"><span>Ponencia</span></p></li>
+        <li><p class="cite"><b>Patishtan Pérez, J.</b> (2026, 15 de octubre). Caña de azúcar: yema individual, evaluación de genotipos y el paso hacia la genómica. Congreso azucarero.</p><p class="meta"><span>Ponencia</span><a href="#docencia">Ver presentación</a></p></li>
         <li><p class="cite"><b>Patishtan Pérez, J.</b> (2025). Eficacia y fitotoxicidad de herbicidas postemergentes en caña de azúcar. ATAM 2025.</p><p class="meta"><span>Ponencia</span></p></li>
       </ul>
     </div>
@@ -674,6 +678,20 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Agricultura de conservación</h3><p>Rotaciones, abonos verdes, labranza mínima y siembra directa para regenerar el suelo.</p></div>
       </div>
       <p>Cursos sugeridos según tu perfil <span class="ph">[confirma o cambia los nombres]</span>. Cada curso puede tener su propia página con temario, lecturas y presentaciones.</p>
+    </div>
+    <!-- PRESENTACIONES: para agregar otra, copia un bloque <div class="deck"> y cambia el PDF y el título -->
+    <div class="stack" id="presentaciones">
+      <h2>Presentaciones</h2>
+      <p>Presentaciones para clase o conferencia. Se ven aquí mismo, sin descargar; usa <b>Pantalla completa</b> para proyectarlas.</p>
+      <div class="deck">
+        <h3>Caña de azúcar: yema individual, evaluación de genotipos y el paso hacia la genómica</h3>
+        <p class="meta">Congreso azucarero · 15 de octubre de 2026 · 34 diapositivas</p>
+        <div class="frame" id="deck-cana"><iframe src="docs/presentacion-yema-individual-genomica-2026.pdf#view=Fit&amp;pagemode=none" title="Presentación: Caña de azúcar, yema individual" loading="lazy" allowfullscreen></iframe></div>
+        <div class="doclinks">
+          <button class="btn primary" type="button" onclick="var f=document.getElementById('deck-cana');(f.requestFullscreen||f.webkitRequestFullscreen).call(f)">Pantalla completa</button>
+          <a class="btn" href="docs/presentacion-yema-individual-genomica-2026.pdf" target="_blank" rel="noopener">Abrir en otra pestaña (PDF, 13 MB)</a>
+        </div>
+      </div>
     </div>
   </section>
 
