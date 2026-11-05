@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Juan Patishtan: agrónomo, fisiólogo y biólogo especializado en la tolerancia de plantas al estrés ambiental y la regeneración del suelo.">
+<meta name="description" content="Juan Patishtan, investigador del INIFAP: agrónomo, fisiólogo y biólogo especializado en la tolerancia de plantas al estrés ambiental y la regeneración del suelo.">
 <title>Juan Patishtan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,6 +131,18 @@ figcaption.cap { font-size: .9rem; color: var(--muted); line-height: 1.45; }
 .plot .frame img { display: block; width: 100%; min-width: 560px; height: auto; }
 @media (max-width: 760px) { .gallery { grid-template-columns: minmax(0, 1fr); } }
 
+/* trayectoria */
+.cv { display: grid; gap: 40px; }
+.cv-group { display: grid; gap: 4px; }
+.cv-item { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.cv-item .when { font-family: var(--mono); font-size: .85rem; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.cv-item .what { display: grid; gap: 4px; min-width: 0; }
+.cv-item .where { color: var(--muted); }
+.cv-item .thesis { font-style: italic; }
+.badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 500; font-size: .9rem; padding: 6px 12px; border-radius: 999px; background: var(--soft); color: var(--ink); border: 1px solid var(--line); }
+.badge b { color: var(--accent); font-weight: 700; }
+@media (max-width: 760px) { .cv-item { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
@@ -191,6 +203,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </a>
     <nav class="main" aria-label="Secciones">
       <a href="#inicio">Inicio</a>
+      <a href="#trayectoria">Trayectoria</a>
       <a href="#investigacion">Investigación</a>
       <a href="#docencia">Docencia</a>
       <a href="#servicios">Servicios</a>
@@ -205,9 +218,9 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
   <section class="view" id="v-inicio">
     <div class="hero">
       <div class="stack">
-        <p class="eyebrow">Agronomía · Fisiología vegetal · Biología</p>
+        <p class="eyebrow">Investigador INIFAP · SNI Nivel I</p>
         <h1>Cultivos que resisten el estrés, suelos que se regeneran.</h1>
-        <p class="lead">Soy agrónomo, fisiólogo y biólogo especializado en la tolerancia de las plantas al estrés ambiental. Desarrollo genotipos resilientes a la sequía, la salinidad y las deficiencias nutricionales, y promuevo prácticas de conservación y regeneración del suelo.</p>
+        <p class="lead">Soy agrónomo, fisiólogo y biólogo especializado en la tolerancia de las plantas al estrés ambiental. Desarrollo genotipos resilientes a la sequía, la salinidad y las deficiencias nutricionales, y promuevo prácticas de conservación y regeneración del suelo. Soy investigador del INIFAP en el Campo Experimental Las Huastecas, en Tamaulipas, y doctor en Biología Vegetal por la Universidad de York, Reino Unido.</p>
         <div class="btns">
           <a class="btn primary" href="#docencia">Explorar los ciclos</a>
           <a class="btn" href="#investigacion">Ver mi investigación</a>
@@ -232,6 +245,32 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <li><time datetime="2026-09">Sep 2026</time><p>Presentación en <span class="ph">[Congreso Nacional de la Ciencia del Suelo]</span>.</p></li>
         <li><time datetime="2026-06">Jun 2026</time><p>Artículo aceptado en <span class="ph">[Revista]</span>. <span class="ph">[ejemplo]</span></p></li>
       </ul>
+    </div>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section class="view" id="v-trayectoria" hidden>
+    <div class="stack">
+      <p class="eyebrow">Trayectoria</p>
+      <h1>Formación y experiencia</h1>
+      <p class="lead">Agrónomo de formación, con maestría en fisiología vegetal en México y doctorado en biología vegetal en el Reino Unido. Desde 2010 investigo en el INIFAP.</p>
+      <div><span class="badge">Sistema Nacional de Investigadores <b>Nivel I</b> · 2024–2028</span></div>
+    </div>
+    <div class="cv">
+      <div class="cv-group">
+        <h2>Experiencia</h2>
+        <div class="cv-item"><span class="when">2010 – hoy</span><div class="what"><h3>Investigador científico</h3><p>Instituto Nacional de Investigaciones Forestales, Agrícolas y Pecuarias (INIFAP)</p><p class="where">Campo Experimental Las Huastecas, Villa Cuauhtémoc, Altamira, Tamaulipas, México</p></div></div>
+      </div>
+      <div class="cv-group">
+        <h2>Educación</h2>
+        <div class="cv-item"><span class="when">2012 – 2017</span><div class="what"><h3>Doctorado (PhD) en Biología Vegetal</h3><p>University of York, Reino Unido</p><p class="thesis">Tesis: Genome-Wide Association and Forward Genetic Studies to Identify Genes Involved in Salt Tolerance</p><p class="where">Área: mapeo genético y tolerancia a la salinidad</p></div></div>
+        <div class="cv-item"><span class="when">2006 – 2008</span><div class="what"><h3>Maestría en Ciencias en Fisiología Vegetal</h3><p>Universidad Autónoma Agraria Antonio Narro, México · Ingeniería de Sistemas de Producción</p><p class="where">Tema: conductancia estomática, asimilación de CO₂, transpiración y crecimiento en <i>Aloe vera</i> bajo déficit hídrico</p></div></div>
+        <div class="cv-item"><span class="when">1999 – 2004</span><div class="what"><h3>Ingeniero Agrónomo en Horticultura</h3><p>Universidad Autónoma Agraria Antonio Narro, México</p></div></div>
+      </div>
+      <div class="cv-group">
+        <h2>Distinciones</h2>
+        <div class="cv-item"><span class="when">2024 – 2028</span><div class="what"><h3>Sistema Nacional de Investigadores, Nivel I</h3><p class="where">Reconocimiento a la trayectoria en investigación científica en México</p></div></div>
+      </div>
     </div>
   </section>
 
@@ -387,7 +426,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="contact">
       <div class="card-info">
         <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">correo@ejemplo.edu</code><button type="button" id="copybtn">Copiar</button></div></div>
-        <div class="row"><span class="eyebrow">Oficina</span><p><span class="ph">[Edificio, cubículo]</span><br><span class="ph">[Institución, ciudad]</span></p></div>
+        <div class="row"><span class="eyebrow">Oficina</span><p>INIFAP, Campo Experimental Las Huastecas<br>Villa Cuauhtémoc, Altamira, Tamaulipas, México</p></div>
         <div class="row"><span class="eyebrow">Horario de asesorías</span><p><span class="ph">[Martes y jueves, 10:00–12:00]</span></p></div>
         <div class="row"><span class="eyebrow">Estudiantes</span><p>Si te interesa hacer tesis o servicio social en el grupo, menciona tu carrera y semestre.</p></div>
       </div>
@@ -411,7 +450,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
 <script>
 (function () {
-  var views = ["inicio", "investigacion", "docencia", "servicios", "contacto"];
+  var views = ["inicio", "trayectoria", "investigacion", "docencia", "servicios", "contacto"];
   function show() {
     var h = (location.hash || "").slice(1);
     if (views.indexOf(h) < 0) h = "inicio";
