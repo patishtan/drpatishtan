@@ -123,6 +123,14 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 .crops span { font-family: var(--display); font-size: .95rem; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
 @media (max-width: 760px) { .approach { grid-template-columns: minmax(0, 1fr); } }
 
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.gallery figure, .plot { margin: 0; display: grid; gap: 8px; align-content: start; }
+.gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; background: var(--soft); }
+figcaption.cap { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+.plot .frame { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; padding: 10px; overflow-x: auto; }
+.plot .frame img { display: block; width: 100%; min-width: 560px; height: auto; }
+@media (max-width: 760px) { .gallery { grid-template-columns: minmax(0, 1fr); } }
+
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
@@ -244,12 +252,22 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <li><b>Manejo del suelo</b><span>Validación en sistemas con rotación, abonos verdes y siembra directa.</span></li>
       </ol>
     </div>
+    <div class="gallery">
+      <figure><img src="img/invernadero-hidroponia.jpg" width="1200" height="800" loading="lazy" alt="Bandejas de hidroponía con plántulas de arroz en un invernadero"><figcaption class="cap">Fenotipado de arroz en hidroponía, en invernadero.</figcaption></figure>
+      <figure><img src="img/plantulas-arroz.jpg" width="1200" height="800" loading="lazy" alt="Plántulas de arroz creciendo en solución nutritiva, con etiquetas de cada accesión"><figcaption class="cap">Plántulas de distintas accesiones en solución nutritiva.</figcaption></figure>
+      <figure><img src="img/arroz-campo.jpg" width="1200" height="800" loading="lazy" alt="Cultivo de arroz en campo con panículas maduras"><figcaption class="cap">Arroz en campo, cerca de la cosecha.</figcaption></figure>
+    </div>
     <div class="lines">
       <article class="line" style="--k: var(--c-nitrogeno)"><h3>Genética de la tolerancia a la salinidad</h3><p>Con estudios de asociación del genoma completo (GWAS) identifico regiones y genes candidatos ligados a la tolerancia a la salinidad en plantas modelo. Estos resultados ayudan a entender mecanismos como la exclusión de sodio, el balance Na⁺/K⁺ y el ajuste osmótico, y orientan el mejoramiento de cultivos.</p><div class="tags"><span class="tag">GWAS</span><span class="tag">marcadores SNP</span><span class="tag">Na⁺/K⁺</span><span class="tag">plantas modelo</span></div></article>
       <article class="line" style="--k: var(--c-agua)"><h3>Fisiología del estrés y genotipos resilientes</h3><p>Evalúo y selecciono genotipos que mantienen su rendimiento bajo sequía, salinidad y deficiencias nutricionales. Mido rasgos fisiológicos como la conductancia estomática, el contenido relativo de agua, la eficiencia en el uso del agua y de los nutrientes, y el desarrollo de raíces.</p><div class="tags"><span class="tag">sequía</span><span class="tag">salinidad</span><span class="tag">eficiencia nutrimental</span><span class="tag">fenotipado</span></div></article>
       <article class="line" style="--k: var(--c-potasio)"><h3>Rotación con abonos verdes</h3><p>Diseño rotaciones entre abonos verdes y cultivos comerciales. Las leguminosas de cobertura fijan nitrógeno, aportan materia orgánica, protegen el suelo entre ciclos y reducen la necesidad de fertilizantes de síntesis.</p><div class="tags"><span class="tag">abonos verdes</span><span class="tag">leguminosas</span><span class="tag">fijación de N</span><span class="tag">materia orgánica</span></div></article>
       <article class="line" style="--k: var(--c-carbono)"><h3>Labranza mínima y siembra directa</h3><p>Promuevo la siembra directa sobre rastrojo y la labranza mínima. Estas técnicas reducen la erosión y la pérdida de humedad, aumentan el carbono orgánico y la actividad biológica, y regeneran la estructura del suelo con el paso de los ciclos.</p><div class="tags"><span class="tag">conservación</span><span class="tag">siembra directa</span><span class="tag">carbono del suelo</span><span class="tag">regeneración</span></div></article>
     </div>
+    <figure class="plot">
+      <h2>Ejemplo de resultados: GWAS en arroz</h2>
+      <div class="frame"><img src="img/gwas-manhattan.png" width="1600" height="436" loading="lazy" alt="Gráfico Manhattan de un análisis GWAS en los 12 cromosomas del arroz, con el pico más alto en el cromosoma 8"></div>
+      <figcaption class="cap">Gráfico Manhattan de un GWAS para tasa relativa de crecimiento (RGR). Cada punto es un marcador del genoma; los que superan la línea punteada muestran una asociación significativa. La señal más fuerte aparece en el cromosoma 8. <span class="ph">[confirma o ajusta la descripción]</span></figcaption>
+    </figure>
     <div class="stack">
       <h2>Cultivos con los que he trabajado</h2>
       <div class="crops"><span>Arroz</span><span>Caña de azúcar</span><span>Cártamo</span><span>Maíz</span><span>Soya</span><span>Sorgo</span></div>
