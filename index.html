@@ -126,6 +126,9 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .gallery figure, .plot { margin: 0; display: grid; gap: 8px; align-content: start; }
 .gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; background: var(--soft); }
+.band { margin: 0; display: grid; gap: 8px; }
+.band img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 12px; background: var(--soft); }
+.band.tall img { aspect-ratio: 5 / 2; object-position: center 35%; }
 figcaption.cap { font-size: .9rem; color: var(--muted); line-height: 1.45; }
 .plot .frame { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; padding: 10px; overflow-x: auto; }
 .plot .frame img { display: block; width: 100%; min-width: 560px; height: auto; }
@@ -232,6 +235,8 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       </figure>
     </div>
 
+    <figure class="band"><img src="img/tallos-cana.jpg" width="1800" height="600" alt="Tallos de caña de azúcar cortados, frente al cañaveral y el cielo azul"></figure>
+
     <div class="grid3">
       <div class="tile"><p class="eyebrow">Investigación</p><h3>Plantas tolerantes al estrés</h3><p>Selección de genotipos de arroz, caña de azúcar, cártamo, maíz, soya y sorgo resistentes a sequía, salinidad y deficiencias nutricionales.</p><a class="more" href="#investigacion">Líneas y publicaciones →</a></div>
       <div class="tile"><p class="eyebrow">Docencia</p><h3>Ciclos biogeoquímicos</h3><p>Materiales interactivos para clase: agua, carbono, nitrógeno, fósforo y potasio.</p><a class="more" href="#docencia">Material de cursos →</a></div>
@@ -293,8 +298,11 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </div>
     <div class="gallery">
       <figure><img src="img/invernadero-hidroponia.jpg" width="1200" height="800" loading="lazy" alt="Bandejas de hidroponía con plántulas de arroz en un invernadero"><figcaption class="cap">Fenotipado de arroz en hidroponía, en invernadero.</figcaption></figure>
-      <figure><img src="img/plantulas-arroz.jpg" width="1200" height="800" loading="lazy" alt="Plántulas de arroz creciendo en solución nutritiva, con etiquetas de cada accesión"><figcaption class="cap">Plántulas de distintas accesiones en solución nutritiva.</figcaption></figure>
+      <figure><img src="img/plantulas-arroz.jpg" width="1200" height="800" loading="lazy" alt="Plántulas de arroz en solución nutritiva, con etiquetas de cada accesión"><figcaption class="cap">Plántulas de distintas accesiones en solución nutritiva.</figcaption></figure>
+      <figure><img src="img/ensayo-sequia.jpg" width="1200" height="692" loading="lazy" alt="Parcelas de arroz en campo con letreros de Control y Sequía"><figcaption class="cap">Ensayo de campo: parcelas control frente a sequía.</figcaption></figure>
+      <figure><img src="img/ensayo-salinidad.jpg" width="1200" height="800" loading="lazy" alt="Parcelas de arroz con letreros de Salinidad y 10% de fertilización"><figcaption class="cap">Ensayo de salinidad y dosis reducida de fertilización (10%).</figcaption></figure>
       <figure><img src="img/arroz-campo.jpg" width="1200" height="800" loading="lazy" alt="Cultivo de arroz en campo con panículas maduras"><figcaption class="cap">Arroz en campo, cerca de la cosecha.</figcaption></figure>
+      <figure><img src="img/canaveral.jpg" width="1200" height="800" loading="lazy" alt="Cañaveral alto junto a una franja de cobertura verde"><figcaption class="cap">Caña de azúcar en campo.</figcaption></figure>
     </div>
     <div class="lines">
       <article class="line" style="--k: var(--c-nitrogeno)"><h3>Genética de la tolerancia a la salinidad</h3><p>Con estudios de asociación del genoma completo (GWAS) identifico regiones y genes candidatos ligados a la tolerancia a la salinidad en plantas modelo. Estos resultados ayudan a entender mecanismos como la exclusión de sodio, el balance Na⁺/K⁺ y el ajuste osmótico, y orientan el mejoramiento de cultivos.</p><div class="tags"><span class="tag">GWAS</span><span class="tag">marcadores SNP</span><span class="tag">Na⁺/K⁺</span><span class="tag">plantas modelo</span></div></article>
@@ -414,6 +422,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <h1>Asesoría y capacitación</h1>
       <p class="lead">Apoyo técnico basado en evidencia para productores, ingenios y empresas agrícolas, organizaciones y escuelas que enfrentan sequía, suelos salinos o pérdida de fertilidad.</p>
     </div>
+    <figure class="band tall"><img src="img/demostracion-cana.jpg" width="1600" height="1067" loading="lazy" alt="Grupo de productores y técnicos en un cañaveral durante una demostración"><figcaption class="cap">Demostración de caña de azúcar con productores y técnicos, 16 de marzo de 2023.</figcaption></figure>
     <div class="svc">
       <div class="tile"><p class="eyebrow">Genotipos</p><h3>Evaluación de variedades tolerantes</h3><p>Ensayos para comparar variedades o líneas bajo sequía, salinidad o baja fertilidad y elegir las más estables.</p></div>
       <div class="tile"><p class="eyebrow">Suelos</p><h3>Diagnóstico y manejo de suelos</h3><p>Interpretación de análisis, manejo de suelos salinos y planes de transición a rotación con abonos verdes y siembra directa.</p></div>
