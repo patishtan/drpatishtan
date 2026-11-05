@@ -185,6 +185,11 @@ a.crop-card .state { color: var(--accent); }
 .dark-fig img { display: block; width: 100%; height: auto; border-radius: 10px; background: #ffffff; border: 1px solid var(--line); }
 @media (max-width: 760px) { .crop-cards { grid-template-columns: minmax(0, 1fr); } .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+.steps-v { list-style: none; margin: 0; padding: 0; counter-reset: st; display: grid; gap: 0; }
+.steps-v li { counter-increment: st; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 12px; padding-block: 12px; border-top: 1px solid var(--line); }
+.steps-v li::before { content: counter(st); font-family: var(--mono); font-size: .85rem; color: var(--accent-ink); background: var(--accent); border-radius: 999px; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; }
+.steps-v b { font-family: var(--display); font-weight: 500; }
+
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
@@ -423,7 +428,9 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <article class="line" style="--k: var(--c-potasio)"><h3>Adaptación de variedades nuevas</h3><p>Evaluamos en campo el desempeño de variedades recientes en la región Huasteca: Mex 05-10, Mex 05-19, Mex 05-41, Mex 05-50, Mex 08-3387, Mex 08-3391, Mex 08-3394, Mex 08-3398 y Mex 08-3406.</p></article>
         <article class="line" style="--k: var(--c-carbono)"><h3>Evaluación agroindustrial y DHE</h3><p>Caracterizamos ocho variedades según las directrices de Distinción, Homogeneidad y Estabilidad (DHE) de la UPOV y comparamos su rendimiento de caña y azúcar para identificar las mejores para la producción.</p></article>
         <article class="line" style="--k: var(--c-agua)"><h3>Tolerancia a la salinidad</h3><p>Medimos cómo responden la parte aérea y la raíz a concentraciones crecientes de NaCl, para seleccionar materiales aptos para suelos salinos.</p></article>
-        <article class="line" style="--k: var(--c-nitrogeno)"><h3>Manejo de malezas</h3><p>Evaluamos la eficacia y fitotoxicidad de herbicidas postemergentes, entre ellos en la variedad Mex 68-1345, y definimos mezclas y condiciones de aplicación.</p></article>
+        <article class="line" style="--k: var(--c-nitrogeno)"><h3>Manejo de malezas</h3><p>Evaluamos la eficacia y fitotoxicidad de herbicidas postemergentes en la variedad Mex 68-1345 para proteger el cultivo durante su periodo crítico.</p></article>
+        <article class="line" style="--k: var(--c-fosforo)"><h3>Plántulas de yema individual</h3><p>Estandarizamos un protocolo de producción de plántulas en charola, evaluado en ColMex 94-8 y validado en más de 90 genotipos.</p></article>
+        <article class="line" style="--k: var(--accent)"><h3>Hacia la genómica</h3><p>Usamos las plántulas como plataforma uniforme para evaluar genotipos bajo estrés abiótico, como base para mapeo genético y búsqueda de genes candidatos.</p></article>
       </div>
     </div>
 
@@ -455,6 +462,53 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <img src="img/cana-salinidad-biomasa.jpg" width="1800" height="753" loading="lazy" alt="Ilustración del peso de parte aérea y raíz de caña de azúcar con 0, 25, 50, 100, 150 y 200 mM de NaCl">
       <figcaption class="cap">Peso de la parte aérea y de la raíz con 0 a 200 mM de NaCl, como porcentaje del testigo. Hasta 100 mM la parte aérea no difiere significativamente (77–100 %). Con 150 mM baja a 43 %, y con 200 mM la raíz baja a 38 % y ninguna de las 5 plantas conserva hoja verde. Media de 5 plantas ± error estándar; letras distintas indican diferencia significativa (ANOVA y Tukey, p &lt; 0.05). Datos propios, medición del 9 de junio de 2025.</figcaption>
     </figure>
+
+<!-- Plántulas de yema individual (fuente: Folleto Técnico Núm. 43 y Congreso Azucarero 2026) -->
+    <div class="stack">
+      <h2>Producción de plántulas de yema individual</h2>
+      <p>Las plántulas de yema individual permiten establecer semilleros sanos y uniformes con mucho menos material vegetativo. Estandarizamos un protocolo integral evaluado en la variedad ColMex 94-8 y validado en más de 90 genotipos de caña de azúcar.</p>
+      <dl class="stats">
+        <div><dt>Densidad en vivero</dt><dd>323 m⁻²<small>en charola de 50 cavidades, contra 120 en bolsa y 169 en vaso</small></dd></div>
+        <div><dt>Listas para trasplante</dt><dd>30 días<small>después de la siembra</small></dd></div>
+        <div><dt>Plántula al trasplante</dt><dd>8–10 g<small>y 13–14 cm de tallo</small></dd></div>
+        <div><dt>Genotipos validados</dt><dd>&gt;90<small>con el mismo protocolo</small></dd></div>
+      </dl>
+      <ol class="steps-v">
+        <li><div><b>Selección de semilla.</b> Tallos de 9 meses; las yemas superiores tienen mayor vigor para producir plántulas.</div></li>
+        <li><div><b>Corte e hidratación.</b> Trozos de 2.5 cm con la yema al centro, hidratados 10 min en NPK 0.75 g L⁻¹ más enraizador 5 mL L⁻¹.</div></li>
+        <li><div><b>Siembra y germinación.</b> Charolas forestales de 50 cavidades (~65 g de sustrato por cavidad), apiladas de 4 a 6 bajo plástico negro por 5–7 días a 25–30 °C. Compost local o sustrato comercial: 85–100 % de germinación.</div></li>
+        <li><div><b>Riego.</b> Desde los 7 días, 0.5 L por charola y después 400–600 mL diarios hasta los 30 días, con humedad cercana al 70 %. Con urea, MAP y K₂SO₄ a 0.75 g L⁻¹, el pH del agua baja de 7.5 a 6.2.</div></li>
+        <li><div><b>Fertilización.</b> Dos veces por semana, solución de urea, MAP y K₂SO₄ a 0.75 g L⁻¹ cada uno (427 ppm N, 170 ppm P y 311 ppm K⁺); unos 4 L por charola en 30 días. <i>Trichoderma</i> más NPK dio la mayor biomasa aérea.</div></li>
+        <li><div><b>Poda.</b> A los 30 días, unos tres días antes del trasplante, a 1 cm sobre la base de la última hoja con lígula desprendida.</div></li>
+        <li><div><b>Transporte y tratamiento.</b> A los 33 días, en taras, hidratadas con enraizador (5 mL L⁻¹) y tratadas contra enfermedades de raíz.</div></li>
+        <li><div><b>Trasplante.</b> 0.7 m entre plantas y 1.4 m entre surcos (10,142 plantas ha⁻¹), o marco tipo piña con fertirrigación (14,280 plantas ha⁻¹).</div></li>
+      </ol>
+    </div>
+
+    <!-- Herbicidas postemergentes (fuente: presentación ATAM 2025 y artículos en Agro Productividad) -->
+    <div class="stack">
+      <h2>Herbicidas postemergentes</h2>
+      <p>Las malezas pueden reducir la cosecha de caña entre 10 y 70 %. El periodo crítico va de los 90 a los 120 días después de la siembra, antes del cierre del dosel; ahí la competencia puede quitar más del 50 % del rendimiento sin recuperación posterior.</p>
+      <p>En el ejido López Rayón (González, Tamaulipas) evaluamos diez tratamientos en la variedad Mex 68-1345, sobre malezas de ocho semanas, en parcelas de 1,250 m² con la escala visual EWRS a los 7, 14 y 21 días después de la aplicación.</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Maleza</th><th>Herbicidas con control suficiente a muy bueno (7–21 días)</th></tr></thead>
+          <tbody>
+            <tr><td>Zacate gramilla (<i>Cynodon dactylon</i>)</td><td>Ametrina + atrazina; ametrina + atrazina + diurón</td></tr>
+            <tr><td>Lechosa (<i>Euphorbia heterophylla</i>)</td><td>Ametrina + 2,4-D; ametrina + ácido 2,4-D (87.5–96.5 %)</td></tr>
+            <tr><td>Correhuela (<i>Convolvulus arvensis</i>)</td><td>Ametrina + 2,4-D; ametrina + atrazina + diurón; diurón + hexazinona</td></tr>
+            <tr><td>Frijolillo</td><td>Ametrina + atrazina; ametrina + atrazina + diurón; ametrina + 2,4-D; diurón + hexazinona</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Resultado:</b> ametrina + atrazina, ametrina + atrazina + diurón y ametrina + 2,4-D lograron 87.5–93 % de control. Causaron 7–12.5 % de fitotoxicidad a los 7 días, pero el cultivo se recuperó a 1–3.5 % a los 21 días. La atrazina sola fue la menos fitotóxica (3.5–7 %), aunque solo controló 70–80 %.</p>
+    </div>
+
+    <!-- Genómica (fuente: Congreso Azucarero 2026) -->
+    <div class="stack">
+      <h2>El paso hacia la genómica</h2>
+      <p>Las plántulas de yema individual dan material uniforme para evaluar genotipos en condiciones controladas y de estrés abiótico, como la absorción y distribución de K⁺ y Na⁺ bajo salinidad. Con esta tecnología hemos trabajado con unos 93 genotipos. Es el mismo enfoque que usé con 306 accesiones de arroz en GWAS, y el siguiente paso es aprovechar el pangenoma de la caña, el mapeo genético y la búsqueda de genes candidatos.</p>
+    </div>
 
     <!-- Paquete tecnológico: cada <details> es un tema desplegable -->
     <div class="stack">
@@ -530,10 +584,17 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="stack">
       <h2>Publicaciones sobre caña de azúcar</h2>
       <ul class="plain pubs">
+        <li><p class="cite"><b>Patishtan Pérez, J.</b>, Vicente Hernández, Z., Ostos Treviño, C. G., Hernández Vázquez, M., &amp; Mar Baltazar, I. A. (2024). <i>Producción de plántulas de caña de azúcar</i>. Folleto Técnico Núm. 43. INIFAP, Campo Experimental Las Huastecas. E-ISBN 978-607-37-1743-4.</p><p class="meta"><span>Folleto técnico</span></p></li>
         <li><p class="cite"><b>Patishtan Pérez, J.</b>, et al. (2026). Effectiveness and phytotoxicity of selective post-emergent herbicides in the sugarcane variety Mex 68-1345. <i>Agro Productividad</i>.</p><p class="meta"><a href="https://doi.org/10.32854/mrybby30">DOI</a></p></li>
         <li><p class="cite"><b>Patishtan-Pérez, J.</b>, et al. (2025). Evaluation of the efficacy and phytotoxicity of synthetic chemical herbicides on sugarcane (<i>Saccharum</i> spp. L.) in San Luis Potosí, Mexico. <i>Agro Productividad</i>.</p><p class="meta"><a href="https://doi.org/10.32854/4fcjc312">DOI</a></p></li>
         <li><p class="cite"><b>Patishtan-Pérez, J.</b>, et al. (2023). Rasgos agroindustriales de variedades de caña de azúcar. <i>Ciencia Latina Revista Científica Multidisciplinar</i>.</p><p class="meta"><a href="https://doi.org/10.37811/cl_rcm.v7i5.8545">DOI</a></p></li>
       </ul>
+      <h3>Presentaciones</h3>
+      <ul class="plain pubs">
+        <li><p class="cite"><b>Patishtan Pérez, J.</b> (2026, 15 de octubre). Caña de azúcar: yema individual, evaluación de genotipos y el paso hacia la genómica. Congreso azucarero.</p><p class="meta"><span>Ponencia</span></p></li>
+        <li><p class="cite"><b>Patishtan Pérez, J.</b> (2025). Eficacia y fitotoxicidad de herbicidas postemergentes en caña de azúcar. ATAM 2025.</p><p class="meta"><span>Ponencia</span></p></li>
+      </ul>
+      <p>Biblioteca de paquetes tecnológicos y publicaciones del Campo Experimental Las Huastecas: <a href="https://bit.ly/Huastecas">bit.ly/Huastecas</a></p>
     </div>
   </section>
 
@@ -640,7 +701,8 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </div>
     <div class="contact">
       <div class="card-info">
-        <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">patishtan.juan@gmail.com</code><button type="button" id="copybtn">Copiar</button></div></div>
+        <div class="row"><span class="eyebrow">Correo</span><div class="copy"><code id="mail">patishtan.juan@inifap.gob.mx</code><button type="button" id="copybtn">Copiar</button></div></div>
+        <div class="row"><span class="eyebrow">Correo alterno</span><p><code>patishtan.juan@gmail.com</code></p></div>
         <div class="row"><span class="eyebrow">Oficina</span><p>INIFAP, Campo Experimental Las Huastecas<br>Villa Cuauhtémoc, Altamira, Tamaulipas, México</p></div>
         <div class="row"><span class="eyebrow">Horario de asesorías</span><p><span class="ph">[Martes y jueves, 10:00–12:00]</span></p></div>
         <div class="row"><span class="eyebrow">Estudiantes</span><p>Si te interesa hacer tesis o servicio social en el grupo, menciona tu carrera y semestre.</p></div>
