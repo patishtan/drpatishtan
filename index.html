@@ -109,6 +109,16 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 .pubs .cite { font-size: 1rem; }
 .pubs .meta { font-family: var(--mono); font-size: .8rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* approach: gene-to-field sequence */
+.approach { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: paso; }
+.approach li { counter-increment: paso; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 4px; align-content: start; }
+.approach li::before { content: counter(paso); font-family: var(--mono); font-size: .75rem; color: var(--accent); }
+.approach b { font-family: var(--display); font-weight: 500; font-size: 1.02rem; }
+.approach span { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.crops { display: flex; flex-wrap: wrap; gap: 8px; }
+.crops span { font-family: var(--display); font-size: .95rem; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+@media (max-width: 760px) { .approach { grid-template-columns: minmax(0, 1fr); } }
+
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
@@ -228,11 +238,25 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <h1>Líneas de investigación</h1>
       <p class="lead">Estudio cómo las plantas toleran el estrés ambiental, desde los genes hasta el campo. Durante mi doctorado apliqué estudios de asociación del genoma completo (GWAS) para identificar genes relacionados con la tolerancia a la salinidad en plantas modelo. Hoy me enfoco en desarrollar genotipos resilientes y en prácticas que conservan y regeneran el suelo.</p>
     </div>
+    <div class="stack">
+      <h2>Del gen al campo</h2>
+      <ol class="approach">
+        <li><b>Variación genética</b><span>Paneles diversos de genotipos y plantas modelo como punto de partida.</span></li>
+        <li><b>Fenotipado bajo estrés</b><span>Ensayos de sequía, salinidad y baja fertilidad en invernadero y campo.</span></li>
+        <li><b>Genes candidatos</b><span>GWAS para asociar marcadores del genoma con los rasgos de tolerancia.</span></li>
+        <li><b>Selección de genotipos</b><span>Elección de materiales con buen rendimiento y estabilidad en condiciones adversas.</span></li>
+        <li><b>Manejo del suelo</b><span>Validación en sistemas con rotación, abonos verdes y siembra directa.</span></li>
+      </ol>
+    </div>
     <div class="lines">
-      <article class="line" style="--k: var(--c-nitrogeno)"><h3>Genética de la tolerancia a la salinidad</h3><p>Uso de GWAS para identificar genes asociados a la tolerancia a la salinidad en plantas modelo, como base para el mejoramiento de cultivos.</p><div class="tags"><span class="tag">GWAS</span><span class="tag">salinidad</span><span class="tag">plantas modelo</span></div></article>
-      <article class="line" style="--k: var(--c-agua)"><h3>Genotipos resilientes</h3><p>Selección de genotipos resistentes a la sequía, la salinidad y las deficiencias nutricionales en arroz, caña de azúcar, cártamo, maíz, soya y sorgo.</p><div class="tags"><span class="tag">sequía</span><span class="tag">salinidad</span><span class="tag">nutrientes</span><span class="tag">fenotipado</span></div></article>
-      <article class="line" style="--k: var(--c-potasio)"><h3>Rotación con abonos verdes</h3><p>Rotación de cultivos entre abonos verdes y cultivos comerciales para reponer nutrientes y materia orgánica del suelo.</p><div class="tags"><span class="tag">abonos verdes</span><span class="tag">rotación</span><span class="tag">materia orgánica</span></div></article>
-      <article class="line" style="--k: var(--c-carbono)"><h3>Labranza mínima y siembra directa</h3><p>Técnicas de conservación que reducen la erosión, mantienen la cobertura y regeneran la estructura del suelo.</p><div class="tags"><span class="tag">conservación</span><span class="tag">siembra directa</span><span class="tag">regeneración</span></div></article>
+      <article class="line" style="--k: var(--c-nitrogeno)"><h3>Genética de la tolerancia a la salinidad</h3><p>Con estudios de asociación del genoma completo (GWAS) identifico regiones y genes candidatos ligados a la tolerancia a la salinidad en plantas modelo. Estos resultados ayudan a entender mecanismos como la exclusión de sodio, el balance Na⁺/K⁺ y el ajuste osmótico, y orientan el mejoramiento de cultivos.</p><div class="tags"><span class="tag">GWAS</span><span class="tag">marcadores SNP</span><span class="tag">Na⁺/K⁺</span><span class="tag">plantas modelo</span></div></article>
+      <article class="line" style="--k: var(--c-agua)"><h3>Fisiología del estrés y genotipos resilientes</h3><p>Evalúo y selecciono genotipos que mantienen su rendimiento bajo sequía, salinidad y deficiencias nutricionales. Mido rasgos fisiológicos como la conductancia estomática, el contenido relativo de agua, la eficiencia en el uso del agua y de los nutrientes, y el desarrollo de raíces.</p><div class="tags"><span class="tag">sequía</span><span class="tag">salinidad</span><span class="tag">eficiencia nutrimental</span><span class="tag">fenotipado</span></div></article>
+      <article class="line" style="--k: var(--c-potasio)"><h3>Rotación con abonos verdes</h3><p>Diseño rotaciones entre abonos verdes y cultivos comerciales. Las leguminosas de cobertura fijan nitrógeno, aportan materia orgánica, protegen el suelo entre ciclos y reducen la necesidad de fertilizantes de síntesis.</p><div class="tags"><span class="tag">abonos verdes</span><span class="tag">leguminosas</span><span class="tag">fijación de N</span><span class="tag">materia orgánica</span></div></article>
+      <article class="line" style="--k: var(--c-carbono)"><h3>Labranza mínima y siembra directa</h3><p>Promuevo la siembra directa sobre rastrojo y la labranza mínima. Estas técnicas reducen la erosión y la pérdida de humedad, aumentan el carbono orgánico y la actividad biológica, y regeneran la estructura del suelo con el paso de los ciclos.</p><div class="tags"><span class="tag">conservación</span><span class="tag">siembra directa</span><span class="tag">carbono del suelo</span><span class="tag">regeneración</span></div></article>
+    </div>
+    <div class="stack">
+      <h2>Cultivos con los que he trabajado</h2>
+      <div class="crops"><span>Arroz</span><span>Caña de azúcar</span><span>Cártamo</span><span>Maíz</span><span>Soya</span><span>Sorgo</span></div>
     </div>
     <div class="stack">
       <h2>Publicaciones seleccionadas</h2>
@@ -251,7 +275,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="stack">
       <p class="eyebrow">Docencia</p>
       <h1>Ciclos biogeoquímicos</h1>
-      <p class="lead">Elige un ciclo para ver cómo se mueve el elemento entre la atmósfera, el suelo, el agua y los seres vivos. Este es el mismo contenido de tu página en Wix, reorganizado.</p>
+      <p class="lead">Los ciclos del agua y de los nutrientes explican por qué una planta sufre estrés y cómo el manejo del suelo puede evitarlo. Elige un ciclo para ver cómo se mueve cada elemento entre la atmósfera, el suelo, el agua y los seres vivos.</p>
     </div>
 
     <div class="explorer">
@@ -317,11 +341,11 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="stack">
       <h2>Cursos</h2>
       <div class="courses">
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE-101]</span></span><h3>Ecología y ciclos biogeoquímicos</h3><p>Introducción a los flujos de materia y energía en ecosistemas.</p></div>
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE-210]</span></span><h3>Química y fertilidad de suelos</h3><p>Propiedades del suelo, nutrientes y su disponibilidad para cultivos.</p></div>
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE-330]</span></span><h3>Métodos de laboratorio</h3><p>Muestreo, análisis e interpretación de datos ambientales.</p></div>
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Fisiología vegetal</h3><p>Relaciones hídricas, nutrición mineral, fotosíntesis y respuestas de las plantas al estrés.</p></div>
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Ciclos biogeoquímicos y fertilidad del suelo</h3><p>Cómo circulan el agua, el C, el N, el P y el K, y cómo eso define la nutrición de los cultivos.</p></div>
+        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Agricultura de conservación</h3><p>Rotaciones, abonos verdes, labranza mínima y siembra directa para regenerar el suelo.</p></div>
       </div>
-      <p>Cada curso puede tener su propia página con temario, lecturas, presentaciones y tareas descargables.</p>
+      <p>Cursos sugeridos según tu perfil <span class="ph">[confirma o cambia los nombres]</span>. Cada curso puede tener su propia página con temario, lecturas y presentaciones.</p>
     </div>
   </section>
 
@@ -330,12 +354,12 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     <div class="stack">
       <p class="eyebrow">Servicios</p>
       <h1>Asesoría y capacitación</h1>
-      <p class="lead">Para productores, empresas, escuelas y organizaciones que necesitan apoyo técnico basado en evidencia. <span class="ph">[Ajusta según lo que ofrezcas]</span></p>
+      <p class="lead">Apoyo técnico basado en evidencia para productores, ingenios y empresas agrícolas, organizaciones y escuelas que enfrentan sequía, suelos salinos o pérdida de fertilidad.</p>
     </div>
     <div class="svc">
-      <div class="tile"><p class="eyebrow">Análisis</p><h3>Interpretación de análisis de suelo</h3><p>Lectura de resultados de laboratorio y recomendaciones de fertilización por cultivo.</p></div>
-      <div class="tile"><p class="eyebrow">Formación</p><h3>Talleres y cursos</h3><p>Capacitación para docentes, técnicos y productores sobre manejo de nutrientes y agua.</p></div>
-      <div class="tile"><p class="eyebrow">Proyectos</p><h3>Diagnóstico ambiental</h3><p>Estudios de calidad de suelo y agua para proyectos productivos o de conservación.</p></div>
+      <div class="tile"><p class="eyebrow">Genotipos</p><h3>Evaluación de variedades tolerantes</h3><p>Ensayos para comparar variedades o líneas bajo sequía, salinidad o baja fertilidad y elegir las más estables.</p></div>
+      <div class="tile"><p class="eyebrow">Suelos</p><h3>Diagnóstico y manejo de suelos</h3><p>Interpretación de análisis, manejo de suelos salinos y planes de transición a rotación con abonos verdes y siembra directa.</p></div>
+      <div class="tile"><p class="eyebrow">Formación</p><h3>Talleres y capacitación</h3><p>Cursos prácticos para técnicos, productores y docentes sobre estrés en cultivos y agricultura de conservación.</p></div>
     </div>
     <div class="btns"><a class="btn primary" href="#contacto">Solicitar información</a></div>
   </section>
