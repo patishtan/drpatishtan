@@ -196,6 +196,8 @@ a.crop-card .state { color: var(--accent); }
 
 /* teaching: cycles explorer */
 .courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.jump { margin-top: 4px; }
+#agroecologia, #cursos, #presentaciones { scroll-margin-top: 80px; }
 .course .code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
 .explorer { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
@@ -604,10 +606,43 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
   <!-- DOCENCIA -->
   <section class="view" id="v-docencia" hidden>
+    <!-- ======================================================
+         DOCENCIA: 1) Materia de Agroecología (temas en acordeón)
+         2) Cursos de capacitación  3) Presentaciones.
+         Para agregar un tema, copia un bloque <details>.
+         ====================================================== -->
     <div class="stack">
       <p class="eyebrow">Docencia</p>
-      <h1>Ciclos biogeoquímicos</h1>
-      <p class="lead">Los ciclos del agua y de los nutrientes explican por qué una planta sufre estrés y cómo el manejo del suelo puede evitarlo. Elige un ciclo para ver cómo se mueve cada elemento entre la atmósfera, el suelo, el agua y los seres vivos.</p>
+      <h1>Docencia y capacitación</h1>
+      <p class="lead">Imparto la materia de Agroecología y cursos de capacitación para técnicos y productores. Aquí están los temas, materiales y presentaciones.</p>
+      <div class="jump btns">
+        <button class="btn" type="button" data-jump="agroecologia">Agroecología</button>
+        <button class="btn" type="button" data-jump="cursos">Cursos</button>
+        <button class="btn" type="button" data-jump="presentaciones">Presentaciones</button>
+      </div>
+    </div>
+
+    <!-- MATERIA: AGROECOLOGÍA -->
+    <div class="stack" id="agroecologia">
+      <p class="eyebrow">Materia</p>
+      <h2>Agroecología</h2>
+      <p class="meta"><span class="ph">[Institución]</span> · <span class="ph">[Carrera y semestre]</span> · <span class="ph">[Periodo]</span></p>
+      <p>Estudia la parcela como un ecosistema: cómo los ciclos de nutrientes, el suelo, la diversidad de cultivos y el manejo determinan la productividad y la resiliencia del sistema agrícola.</p>
+      <p class="meta">Temas del curso <span class="ph">[confirma o cambia los temas]</span></p>
+      <div class="acc">
+        <details><summary>Tema 1 · Fundamentos de la agroecología</summary><div class="body"><p>La parcela como agroecosistema: componentes, interacciones y los principios que guían un manejo sostenible.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 2 · Ciclos biogeoquímicos</summary><div class="body"><p>Cómo circulan el agua, el carbono, el nitrógeno, el fósforo y el potasio entre la atmósfera, el suelo y los seres vivos. Incluye el explorador interactivo de abajo.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 3 · Suelo vivo y fertilidad</summary><div class="body"><p>Materia orgánica, vida del suelo y nutrición de los cultivos; cómo leer un análisis de suelo.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 4 · Diversificación del sistema</summary><div class="body"><p>Rotación de cultivos, asociaciones y abonos verdes para cortar ciclos de plagas y aportar nitrógeno.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 5 · Agricultura de conservación</summary><div class="body"><p>Labranza mínima, siembra directa y cobertura del suelo para reducir la erosión y conservar humedad.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 6 · Manejo agroecológico de plagas, enfermedades y malezas</summary><div class="body"><p>Prevención, control biológico y uso racional de agroquímicos dentro de un manejo integrado.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+        <details><summary>Tema 7 · Agua, estrés y resiliencia</summary><div class="body"><p>Sequía y salinidad, genotipos tolerantes y prácticas para adaptar los cultivos al clima.</p><p class="meta">Materiales: <span class="ph">[presentación]</span> · <span class="ph">[lecturas]</span> · <span class="ph">[actividad]</span></p></div></details>
+      </div>
+    </div>
+
+    <div class="stack">
+      <h3>Tema 2 · Explorador de ciclos biogeoquímicos</h3>
+      <p>Elige un ciclo para ver cómo se mueve cada elemento entre la atmósfera, el suelo, el agua y los seres vivos.</p>
     </div>
 
     <div class="explorer">
@@ -670,14 +705,17 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       </div>
     </div>
 
-    <div class="stack">
+    <!-- CURSOS DE CAPACITACIÓN: para agregar uno, copia un bloque <div class="tile course"> -->
+    <div class="stack" id="cursos">
+      <p class="eyebrow">Capacitación</p>
       <h2>Cursos</h2>
+      <p>Cursos y talleres para técnicos, productores y estudiantes, basados en los resultados de investigación del Campo Experimental Las Huastecas.</p>
       <div class="courses">
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Fisiología vegetal</h3><p>Relaciones hídricas, nutrición mineral, fotosíntesis y respuestas de las plantas al estrés.</p></div>
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Ciclos biogeoquímicos y fertilidad del suelo</h3><p>Cómo circulan el agua, el C, el N, el P y el K, y cómo eso define la nutrición de los cultivos.</p></div>
-        <div class="tile course"><span class="code"><span class="ph">[CLAVE]</span></span><h3>Agricultura de conservación</h3><p>Rotaciones, abonos verdes, labranza mínima y siembra directa para regenerar el suelo.</p></div>
+        <div class="tile course"><span class="code">Caña de azúcar · <span class="ph">[duración]</span></span><h3>Producción de plántulas por yema individual</h3><p>Selección de semilla, extracción de yemas, tratamiento, germinación en charola y trasplante.</p><a class="more" href="docs/folleto-produccion-plantulas-cana.pdf">Material: Folleto Técnico Núm. 43 →</a></div>
+        <div class="tile course"><span class="code">Caña de azúcar · <span class="ph">[duración]</span></span><h3>Manejo de malezas y herbicidas</h3><p>Eficacia y fitotoxicidad de herbicidas postemergentes en caña; calibración y aplicación segura.</p><a class="more" href="#cana-de-azucar">Ver resultados →</a></div>
+        <div class="tile course"><span class="code">Suelo · <span class="ph">[duración]</span></span><h3>Agricultura de conservación</h3><p>Rotaciones, abonos verdes, labranza mínima y siembra directa para regenerar el suelo.</p></div>
       </div>
-      <p>Cursos sugeridos según tu perfil <span class="ph">[confirma o cambia los nombres]</span>. Cada curso puede tener su propia página con temario, lecturas y presentaciones.</p>
+      <p><span class="ph">[confirma o cambia los cursos]</span> ¿Te interesa un curso para tu grupo u organización? <a href="#contacto">Escríbeme</a>.</p>
     </div>
     <!-- PRESENTACIONES: para agregar otra, copia un bloque <div class="deck"> y cambia el PDF y el título -->
     <div class="stack" id="presentaciones">
@@ -758,6 +796,10 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
   }
   window.addEventListener("hashchange", show);
   show();
+
+  document.querySelectorAll("[data-jump]").forEach(function (b) {
+    b.addEventListener("click", function () { document.getElementById(b.getAttribute("data-jump")).scrollIntoView({ behavior: "smooth" }); });
+  });
 
   var tabs = document.querySelectorAll('[role="tab"]');
   function select(tab) {
