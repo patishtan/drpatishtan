@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://patishtan.github.io/drpatishtan/sitemap.xml
