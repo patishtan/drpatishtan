@@ -224,6 +224,16 @@ a.crop-card .state { color: var(--accent); }
 .subtopics li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
 .subtopics span { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
 .viewer { display: grid; gap: 12px; }
+.tools { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.tool { display: grid; justify-items: center; align-content: start; gap: 4px; padding: 14px 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); font: inherit; text-align: center; text-decoration: none; cursor: pointer; transition: border-color .15s, background .15s; }
+.tool svg { color: var(--h1); margin-bottom: 4px; }
+.tool span { font-family: var(--display); font-size: .95rem; line-height: 1.2; }
+.tool small { font-family: var(--mono); font-size: .7rem; color: var(--muted); }
+.tool:hover { border-color: var(--accent); }
+.tool:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tool[aria-pressed="true"] { background: var(--h1); border-color: var(--h1); color: var(--bg); }
+.tool[aria-pressed="true"] svg, .tool[aria-pressed="true"] small { color: var(--bg); }
+@media (max-width: 760px) { .tools { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .tool { padding: 12px 4px 10px; } .tool span { font-size: .8rem; } .tool small { font-size: .62rem; } }
 .seg button b { font-family: var(--mono); font-weight: 500; margin-right: 4px; }
 .eval { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .step { border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 8px; align-content: start; background: var(--bg); }
@@ -703,7 +713,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
         <!-- UNIDAD 1 -->
         <details class="unit" id="agro-u1" open>
-          <summary><span class="unit-n">Unidad 1</span><span class="unit-t">Introducción a la agroecología</span><span class="unit-has">Manual · Presentación · Tarea · Examen · Calificación</span></summary>
+          <summary><span class="unit-n">Unidad 1</span><span class="unit-t">Introducción a la agroecología</span><span class="unit-has">Presentación · Manual · Tarea · Examen · Calificación</span></summary>
           <div class="unit-body">
             <p><b>Competencia:</b> explica el concepto, los principios y el campo de estudio de la agroecología, y los utiliza para analizar de manera crítica un sistema de producción agropecuario tropical en sus dimensiones ecológica, económica y social.</p>
             <div class="unit-cols">
@@ -720,22 +730,19 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
               </ol></div>
             </div>
             <div class="viewer" data-pres="docs/agroecologia/unidad-1-presentacion.html" data-pdf="docs/agroecologia/unidad-1-manual.pdf">
-              <div class="seg" role="group" aria-label="Material de la Unidad 1">
-                <button type="button" data-show="pdf" aria-pressed="true"><b>1</b> Manual didáctico · PDF, 14 páginas</button>
-                <button type="button" data-show="pres" aria-pressed="false"><b>2</b> Presentación · 19 diapositivas</button>
-              </div>
               <div class="frame"><iframe title="Material de la Unidad 1" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools" role="group" aria-label="Recursos de la Unidad 1">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>19 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual didáctico</span><small>PDF · 14 páginas</small></button>
+                <a class="tool" href="https://classroom.google.com/c/ODc4Mzk0MDU3MDI2/a/ODk3OTc4Mjg0Mzkw/details" target="_blank" rel="noopener" title="Actividad 1: diagnóstico de un rancho con los 10 elementos de la FAO. Reporte de 3 a 4 páginas con gráfico de radar, evidencia y tres propuestas de mejora."><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M4 14v4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V14"/></svg><span>Tarea A1</span><small>Entrega 13 nov</small></a>
+                <a class="tool" href="https://classroom.google.com/w/ODc4Mzk0MDU3MDI2/t/all" target="_blank" rel="noopener" title="Examen en línea: comprensión, aplicación a casos y argumentación. Un solo intento."><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M8.5 9l1.5 1.5L13 7.5M8.5 15l1.5 1.5L13 13.5M15 9.5h1M15 15.5h1"/></svg><span>Examen</span><small>40 min · hasta 13 nov</small></a>
+                <a class="tool" href="https://classroom.google.com/c/ODc4Mzk0MDU3MDI2" target="_blank" rel="noopener" title="Calificaciones e historial de avance con tu cuenta de Google."><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V5M16 20v-7M22 20H2"/></svg><span>Calificación</span><small>en Classroom</small></a>
+              </div>
               <div class="doclinks">
                 <button class="btn primary" type="button" data-act="full">Pantalla completa</button>
                 <a class="btn" data-act="open" target="_blank" rel="noopener">Abrir en otra pestaña</a>
               </div>
               <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
-            </div>
-            <!-- PASOS 3 A 5: cambia cada href="#" por el enlace de Google Classroom o del formulario -->
-            <div class="eval">
-              <div class="step"><span class="step-n">3</span><h4>Tarea</h4><p>Actividad 1: diagnóstico de un rancho con los 10 elementos de la FAO. Reporte de 3 a 4 páginas con gráfico de radar, evidencia y tres propuestas de mejora.</p><p class="meta">Entrega: viernes 13 de noviembre · se inicia sesión con tu cuenta de Google para identificar al alumno.</p><a class="btn primary" href="https://classroom.google.com/c/ODc4Mzk0MDU3MDI2/a/ODk3OTc4Mjg0Mzkw/details" target="_blank" rel="noopener">Entregar tarea en Classroom</a></div>
-              <div class="step"><span class="step-n">4</span><h4>Examen</h4><p>Examen en línea de la Unidad 1 con preguntas de tres niveles: comprensión, aplicación a casos y argumentación.</p><p class="meta">Disponible hasta el viernes 13 de noviembre · tiempo: 40 minutos · un solo intento · preguntas 1–17 con calificación automática.</p><a class="btn primary" href="https://classroom.google.com/w/ODc4Mzk0MDU3MDI2/t/all" target="_blank" rel="noopener">Presentar examen en Classroom</a></div>
-              <div class="step"><span class="step-n">5</span><h4>Calificación</h4><p>Cada alumno consulta sus calificaciones y su historial de avance con su propia cuenta de Google, en la clase de Classroom.</p><p class="meta">Tarea, examen y promedio de la unidad.</p><a class="btn" href="https://classroom.google.com/c/ODc4Mzk0MDU3MDI2" target="_blank" rel="noopener">Ver mis calificaciones en Classroom</a></div>
             </div>
           </div>
         </details>
@@ -913,14 +920,14 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       open.href = kind === "pdf" ? v.dataset.pdf : v.dataset.pres;
       open.textContent = kind === "pdf" ? "Abrir o descargar el PDF" : "Abrir en otra pestaña";
       v.classList.toggle("is-pdf", kind === "pdf");
-      v.querySelectorAll(".seg button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.show === kind ? "true" : "false"); });
+      v.querySelectorAll("[data-show]").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.show === kind ? "true" : "false"); });
     }
-    v.querySelectorAll(".seg button").forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.show); }); });
+    v.querySelectorAll("[data-show]").forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.show); }); });
     v.querySelector('[data-act="full"]').addEventListener("click", function () {
       var f = v.querySelector(".frame"); var r = f.requestFullscreen || f.webkitRequestFullscreen; if (r) r.call(f);
       setTimeout(function () { try { fr.contentWindow.focus(); } catch (e) {} }, 300);
     });
-    show("pdf");
+    show("pres");
   });
 
   document.querySelectorAll("[data-jump]").forEach(function (b) {
