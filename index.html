@@ -224,6 +224,7 @@ a.crop-card .state { color: var(--accent); }
 .subtopics li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
 .subtopics span { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
 .viewer { display: grid; gap: 12px; }
+@media (hover: none) { .viewer .hint { display: none; } }
 .syllabus { border-top: 1px solid var(--line); padding-top: 10px; }
 .syllabus > summary { cursor: pointer; font-family: var(--display); font-size: .95rem; color: var(--muted); list-style: none; }
 .syllabus > summary::-webkit-details-marker { display: none; }
@@ -731,8 +732,8 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
                 <a class="tool" href="https://classroom.google.com/c/ODc4Mzk0MDU3MDI2" target="_blank" rel="noopener" title="Calificaciones e historial de avance con tu cuenta de Google."><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V5M16 20v-7M22 20H2"/></svg><span>Calificación</span><small>en Classroom</small></a>
               </div>
               <div class="doclinks">
-                <button class="btn primary" type="button" data-act="full">Pantalla completa</button>
-                <a class="btn" data-act="open" target="_blank" rel="noopener">Abrir en otra pestaña</a>
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
               </div>
               <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
             </div>
@@ -933,7 +934,9 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     }
     v.querySelectorAll("[data-show]").forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.show); }); });
     v.querySelector('[data-act="full"]').addEventListener("click", function () {
-      var f = v.querySelector(".frame"); var r = f.requestFullscreen || f.webkitRequestFullscreen; if (r) r.call(f);
+      var f = v.querySelector(".frame"); var r = f.requestFullscreen || f.webkitRequestFullscreen;
+      if (!r || matchMedia("(hover: none)").matches) { window.open(open.href, "_blank", "noopener"); return; }
+      r.call(f);
       setTimeout(function () { try { fr.contentWindow.focus(); } catch (e) {} }, 300);
     });
     show("pres");
