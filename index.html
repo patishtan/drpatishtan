@@ -48,6 +48,7 @@
   --c-nitrogeno: #6d3fd1;
   --c-fosforo: #c24e0c;
   --c-potasio: #15843d;
+  --c-sodio: #8a5a2b;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -55,13 +56,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0F1B2E; --surface: #16243A; --ink: #F4EFE6; --muted: #BDB6AA; --line: #2D415A; --accent: #E39373; --accent-fill: #C56F4E; --accent-ink: #0F1B2E; --soft: #1C2C44; --ph: #f0b659; --h1: #F4EFE6; --h2: #A9BCA4; --h3: #D5C4AE; --th-bg: #2D415A; --th-ink: #F4EFE6; --sage: #A9BCA4; --sand: #D5C4AE;
-    --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b;
+    --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b; --c-sodio: #d9a066;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0F1B2E; --surface: #16243A; --ink: #F4EFE6; --muted: #BDB6AA; --line: #2D415A; --accent: #E39373; --accent-fill: #C56F4E; --accent-ink: #0F1B2E; --soft: #1C2C44; --ph: #f0b659; --h1: #F4EFE6; --h2: #A9BCA4; --h3: #D5C4AE; --th-bg: #2D415A; --th-ink: #F4EFE6; --sage: #A9BCA4; --sand: #D5C4AE;
-  --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b;
+  --c-agua: #4bb3ec; --c-carbono: #a7b4c2; --c-nitrogeno: #a98af0; --c-fosforo: #f08a4b; --c-potasio: #52c47b; --c-sodio: #d9a066;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -173,6 +174,9 @@ a.crop-card:hover { border-color: var(--accent); }
 .crop-card .sci { font-style: italic; color: var(--muted); font-size: .95rem; }
 .crop-card .state { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
 a.crop-card .state { color: var(--accent); }
+.el-card { --c: var(--accent); border-top: 4px solid var(--c); }
+.el-card .el-sym { font-family: var(--display); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--c); }
+.el-card p { margin: 0; color: var(--muted); font-size: .98rem; }
 .crumbs { font-family: var(--mono); font-size: .8rem; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
 .crumbs a { color: var(--muted); }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; }
@@ -338,6 +342,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <a href="#inicio">Inicio</a>
       <a href="#trayectoria">Trayectoria</a>
       <a href="#investigacion">Investigación</a>
+      <a href="#nutricion">Nutrición</a>
       <a href="#cultivos">Cultivos</a>
       <a href="#docencia">Docencia</a>
       <a href="#servicios">Servicios</a>
@@ -356,7 +361,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
         <h1>Cultivos que resisten el estrés, suelos que se regeneran.</h1>
         <p class="lead">Soy agrónomo, fisiólogo y biólogo especializado en la tolerancia de las plantas al estrés ambiental. Desarrollo genotipos resilientes a la sequía, la salinidad y las deficiencias nutricionales, y promuevo prácticas de conservación y regeneración del suelo. Soy investigador del INIFAP en el Campo Experimental Las Huastecas, en Tamaulipas, y doctor en Biología Vegetal por la Universidad de York, Reino Unido.</p>
         <div class="btns">
-          <a class="btn primary" href="#docencia">Explorar los ciclos</a>
+          <a class="btn primary" href="#nutricion">Explorar los ciclos</a>
           <a class="btn" href="#investigacion">Ver mi investigación</a>
         </div>
       </div>
@@ -370,7 +375,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
     <div class="grid3">
       <div class="tile"><p class="eyebrow">Investigación</p><h3>Plantas tolerantes al estrés</h3><p>Selección de genotipos de arroz, caña de azúcar, cártamo, maíz, soya y sorgo resistentes a sequía, salinidad y deficiencias nutricionales.</p><a class="more" href="#investigacion">Líneas y publicaciones →</a></div>
-      <div class="tile"><p class="eyebrow">Docencia</p><h3>Ciclos biogeoquímicos</h3><p>Materiales interactivos para clase: agua, carbono, nitrógeno, fósforo y potasio.</p><a class="more" href="#docencia">Material de cursos →</a></div>
+      <div class="tile"><p class="eyebrow">Docencia</p><h3>Nutrición en plantas</h3><p>Seis módulos: agua, carbono, nitrógeno, fósforo, potasio y sodio, del ecosistema a la molécula.</p><a class="more" href="#nutricion">Ver los módulos →</a></div>
       <div class="tile"><p class="eyebrow">Servicios</p><h3>Asesoría técnica</h3><p>Selección de variedades, manejo de suelos salinos y transición a labranza mínima y siembra directa.</p><a class="more" href="#servicios">Qué ofrezco →</a></div>
     </div>
 
@@ -472,6 +477,45 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
        CULTIVOS: lista de cultivos. Para agregar uno nuevo, copia
        una tarjeta <a class="crop-card"> y crea su sección abajo.
        ====================================================== -->
+  <!-- ======================================================
+       NUTRICIÓN EN PLANTAS — cada módulo es un archivo en docs/nutricion/.
+       Para actualizar un módulo, reemplaza su HTML y cambia la fecha de abajo.
+       ====================================================== -->
+  <section class="view" id="v-nutricion" hidden>
+    <div class="stack">
+      <p class="eyebrow">Nutrición en plantas</p>
+      <h1>Ciclos biogeoquímicos, absorción, transporte y homeostasis del agua y los nutrientes</h1>
+      <p class="lead">Seis módulos que siguen cada elemento del ecosistema a la molécula: del ciclo en el suelo y la atmósfera a la raíz, los tejidos, las células, los orgánulos, los transportadores y la regulación génica, con sus consecuencias en arroz, maíz, sorgo, caña de azúcar y soya.</p>
+    </div>
+    <div class="crop-cards">
+      <a class="crop-card el-card" href="docs/nutricion/modulo-1-agua.html" style="--c:var(--c-agua)"><span class="el-sym">H₂O</span><h3>Módulo 1. Agua</h3><p>El medio en el que ocurre toda la nutrición vegetal: potencial hídrico, acuaporinas, transpiración y anegamiento.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+      <a class="crop-card el-card" href="docs/nutricion/modulo-2-carbono.html" style="--c:var(--c-carbono)"><span class="el-sym">CO₂</span><h3>Módulo 2. Carbono</h3><p>Entrada por los estomas, fijación en plantas C₃, C₄ y CAM, partición fuente–sumidero y CO₂ elevado.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+      <a class="crop-card el-card" href="docs/nutricion/modulo-3-nitrogeno.html" style="--c:var(--c-nitrogeno)"><span class="el-sym">N</span><h3>Módulo 3. Nitrógeno</h3><p>Nitrato y amonio, transportadores NRT y AMT, asimilación GS/GOGAT y fijación simbiótica.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+      <a class="crop-card el-card" href="docs/nutricion/modulo-4-fosforo.html" style="--c:var(--c-fosforo)"><span class="el-sym">P</span><h3>Módulo 4. Fósforo</h3><p>Fosfato en el suelo, transportadores PHT1, micorrizas y la red de señalización PHR1–SPX.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+      <a class="crop-card el-card" href="docs/nutricion/modulo-5-potasio.html" style="--c:var(--c-potasio)"><span class="el-sym">K</span><h3>Módulo 5. Potasio</h3><p>El catión más abundante de la célula: canales y transportadores, estomas, osmorregulación y floema.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+      <a class="crop-card el-card" href="docs/nutricion/modulo-6-sodio.html" style="--c:var(--c-sodio)"><span class="el-sym">Na⁺</span><h3>Módulo 6. Sodio</h3><p>Nutriente funcional en algunas C₄ y halófitas, y principal ion tóxico de los suelos salinos: HKT, SOS1 y NHX.</p><span class="state">8 secciones · 6 figuras · referencias con DOI →</span></a>
+    </div>
+    <div class="stack">
+      <h2>Cómo está organizado cada módulo</h2>
+      <ol class="subtopics el-steps">
+        <li><span>1</span>Ciclo biogeoquímico y dinámica ambiental</li>
+        <li><span>2</span>Absorción y adquisición por la planta</li>
+        <li><span>3</span>Transporte a corta y larga distancia</li>
+        <li><span>4</span>Distribución, compartimentación y homeostasis</li>
+        <li><span>5</span>Funciones fisiológicas, bioquímicas y moleculares</li>
+        <li><span>6</span>Deficiencias, excesos y toxicidad</li>
+        <li><span>7</span>Respuestas adaptativas y mecanismos de regulación</li>
+        <li><span>8</span>Implicaciones agronómicas</li>
+      </ol>
+      <p>El agua y el carbono no se tratan como nutrientes minerales: el agua se estudia por su potencial hídrico, su déficit y el anegamiento; el carbono, por la entrada de CO₂, su fijación y la respuesta al CO₂ elevado. El sodio se presenta como nutriente funcional en algunas plantas C₄ y halófitas, y como el ion tóxico de los suelos salinos.</p>
+    </div>
+    <div class="svc">
+      <div class="tile"><p class="eyebrow">Investigación básica</p><h3>Transportadores, sensores y regulación</h3><p>Avances moleculares sobre la adquisición y la homeostasis de cada elemento. <span class="ph">[en preparación]</span></p></div>
+      <div class="tile"><p class="eyebrow">Investigación aplicada</p><h3>Del laboratorio al campo</h3><p>Ensayos del INIFAP en las Huastecas: eficiencia de uso de nutrientes, salinidad y sequía en caña de azúcar, arroz y sorgo. <span class="ph">[en preparación]</span></p></div>
+    </div>
+    <p class="eyebrow">Versión en desarrollo · última actualización: 6 de noviembre de 2026</p>
+  </section>
+
   <section class="view" id="v-cultivos" hidden>
     <div class="stack">
       <p class="eyebrow">Cultivos</p>
@@ -949,7 +993,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 
 <script>
 (function () {
-  var views = ["inicio", "trayectoria", "investigacion", "cultivos", "cana-de-azucar", "docencia", "servicios", "contacto"];
+  var views = ["inicio", "trayectoria", "investigacion", "nutricion", "cultivos", "cana-de-azucar", "docencia", "servicios", "contacto"];
   function show() {
     var h = (location.hash || "").slice(1);
     if (views.indexOf(h) < 0) h = "inicio";
