@@ -181,6 +181,22 @@ a.crop-card .state { color: var(--accent); }
 .el-links a { text-align: center; white-space: nowrap; font-family: var(--mono); font-size: .74rem; text-decoration: none; padding: 9px 4px; border-radius: 6px; border: 1px solid var(--c); color: var(--ink); }
 .el-links a.pri { background: var(--c); color: #fff; }
 .el-links a:hover { filter: brightness(1.08); }
+/* Nutrición: submenú ordenado de módulos */
+.el-menu { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.el-menu a { --c: var(--accent); display: grid; justify-items: center; gap: 2px; padding: 12px 6px 10px; border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; text-align: center; }
+.el-menu a b { font-family: var(--mono); font-weight: 500; font-size: .7rem; color: var(--muted); }
+.el-menu .el-sym { font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1.1; color: var(--c); }
+.el-menu .el-name { font-family: var(--display); font-size: .9rem; }
+.el-menu a:hover { border-color: var(--c); }
+.el-menu a[aria-current="true"] { background: var(--c); border-color: var(--c); color: #fff; }
+.el-menu a[aria-current="true"] .el-sym, .el-menu a[aria-current="true"] b { color: #fff; }
+.el-unit { border-left: 4px solid var(--c); }
+.el-unit .unit-n { color: var(--c); }
+.el-unit .unit-t .el-sym { color: var(--c); }
+.el-hook { margin: 0; color: var(--muted); }
+.tools.tools-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; }
+@media (max-width: 760px) { .el-menu { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tools.tools-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 .crumbs { font-family: var(--mono); font-size: .8rem; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
 .crumbs a { color: var(--muted); }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; }
@@ -485,18 +501,153 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
        Para actualizar un módulo, reemplaza su HTML y cambia la fecha de abajo.
        ====================================================== -->
   <section class="view" id="v-nutricion" hidden>
+    <!-- ======================================================
+         NUTRICIÓN EN PLANTAS: un bloque <details class="unit el-unit"> por módulo,
+         en el mismo orden que el submenú (.el-menu). Para agregar un módulo:
+         1. Sube a docs/nutricion/ el manual (modulo-7-x.html) y la presentación (modulo-7-x-presentacion.html).
+         2. Copia un enlace del submenú y un bloque <details>, y cambia número, nombre, símbolo y archivos.
+         ====================================================== -->
     <div class="stack">
       <p class="eyebrow">Nutrición en plantas</p>
       <h1>Ciclos biogeoquímicos, absorción, transporte y homeostasis del agua y los nutrientes</h1>
       <p class="lead">Seis módulos que siguen cada elemento del ecosistema a la molécula: del ciclo en el suelo y la atmósfera a la raíz, los tejidos, las células, los orgánulos, los transportadores y la regulación génica, con sus consecuencias en arroz, maíz, sorgo, caña de azúcar y soya.</p>
     </div>
-    <div class="crop-cards">
-      <div class="crop-card el-card" style="--c:var(--c-agua)"><span class="el-sym">H₂O</span><h3>Módulo 1. Agua</h3><p>El medio en el que ocurre toda la nutrición vegetal: potencial hídrico, acuaporinas, transpiración y anegamiento.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-1-agua-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-1-agua.html">Manual</a></div></div>
-      <div class="crop-card el-card" style="--c:var(--c-carbono)"><span class="el-sym">CO₂</span><h3>Módulo 2. Carbono</h3><p>Entrada por los estomas, fijación en plantas C₃, C₄ y CAM, partición fuente–sumidero y CO₂ elevado.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-2-carbono-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-2-carbono.html">Manual</a></div></div>
-      <div class="crop-card el-card" style="--c:var(--c-nitrogeno)"><span class="el-sym">N</span><h3>Módulo 3. Nitrógeno</h3><p>Nitrato y amonio, transportadores NRT y AMT, asimilación GS/GOGAT y fijación simbiótica.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-3-nitrogeno-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-3-nitrogeno.html">Manual</a></div></div>
-      <div class="crop-card el-card" style="--c:var(--c-fosforo)"><span class="el-sym">P</span><h3>Módulo 4. Fósforo</h3><p>Fosfato en el suelo, transportadores PHT1, micorrizas y la red de señalización PHR1–SPX.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-4-fosforo-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-4-fosforo.html">Manual</a></div></div>
-      <div class="crop-card el-card" style="--c:var(--c-potasio)"><span class="el-sym">K</span><h3>Módulo 5. Potasio</h3><p>El catión más abundante de la célula: canales y transportadores, estomas, osmorregulación y floema.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-5-potasio-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-5-potasio.html">Manual</a></div></div>
-      <div class="crop-card el-card" style="--c:var(--c-sodio)"><span class="el-sym">Na⁺</span><h3>Módulo 6. Sodio</h3><p>Nutriente funcional en algunas C₄ y halófitas, y principal ion tóxico de los suelos salinos: HKT, SOS1 y NHX.</p><span class="state">8 secciones · 6 figuras · referencias con DOI</span><div class="el-links"><a class="pri" href="docs/nutricion/modulo-6-sodio-presentacion.html">▶ Presentación</a><a href="docs/nutricion/modulo-6-sodio.html">Manual</a></div></div>
+    <nav class="el-menu" aria-label="Módulos de Nutrición en plantas">
+      <a href="#nutricion/agua" data-mod="agua" style="--c:var(--c-agua)"><b>1</b><span class="el-sym">H₂O</span><span class="el-name">Agua</span></a><a href="#nutricion/carbono" data-mod="carbono" style="--c:var(--c-carbono)"><b>2</b><span class="el-sym">CO₂</span><span class="el-name">Carbono</span></a><a href="#nutricion/nitrogeno" data-mod="nitrogeno" style="--c:var(--c-nitrogeno)"><b>3</b><span class="el-sym">N</span><span class="el-name">Nitrógeno</span></a><a href="#nutricion/fosforo" data-mod="fosforo" style="--c:var(--c-fosforo)"><b>4</b><span class="el-sym">P</span><span class="el-name">Fósforo</span></a><a href="#nutricion/potasio" data-mod="potasio" style="--c:var(--c-potasio)"><b>5</b><span class="el-sym">K</span><span class="el-name">Potasio</span></a><a href="#nutricion/sodio" data-mod="sodio" style="--c:var(--c-sodio)"><b>6</b><span class="el-sym">Na⁺</span><span class="el-name">Sodio</span></a>
+    </nav>
+    <div class="units" id="nut-modulos">
+        <details class="unit el-unit" id="nut-agua" style="--c:var(--c-agua)">
+          <summary><span class="unit-n">Módulo 1</span><span class="unit-t"><span class="el-sym">H₂O</span> Agua</span><span class="unit-has">Presentación · Manual · 87 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">El medio en el que ocurre toda la nutrición vegetal: potencial hídrico, acuaporinas, transpiración y anegamiento.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-1-agua-presentacion.html" data-pdf="docs/nutricion/modulo-1-agua.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 1: Agua" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 1">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>25 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>1.1</span>Ciclo biogeoquímico del agua</li><li><span>1.2</span>Absorción del agua</li><li><span>1.3</span>Transporte a corta y larga distancia</li><li><span>1.4</span>Distribución, compartimentación y homeostasis</li><li><span>1.5</span>Funciones del agua en la planta</li><li><span>1.6</span>Déficit, exceso y toxicidad</li><li><span>1.7</span>Respuestas adaptativas y regulación</li><li><span>1.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
+        <details class="unit el-unit" id="nut-carbono" style="--c:var(--c-carbono)">
+          <summary><span class="unit-n">Módulo 2</span><span class="unit-t"><span class="el-sym">CO₂</span> Carbono</span><span class="unit-has">Presentación · Manual · 41 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">Entrada por los estomas, fijación en plantas C₃, C₄ y CAM, partición fuente–sumidero y CO₂ elevado.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-2-carbono-presentacion.html" data-pdf="docs/nutricion/modulo-2-carbono.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 2: Carbono" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 2">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>24 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>2.1</span>Ciclo biogeoquímico del carbono</li><li><span>2.2</span>Absorción: entrada del CO₂ y fijación</li><li><span>2.3</span>Transporte a corta y larga distancia</li><li><span>2.4</span>Distribución, compartimentación y homeostasis</li><li><span>2.5</span>Funciones del carbono en la planta</li><li><span>2.6</span>Déficit, exceso y toxicidad</li><li><span>2.7</span>Respuestas adaptativas y regulación</li><li><span>2.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
+        <details class="unit el-unit" id="nut-nitrogeno" style="--c:var(--c-nitrogeno)">
+          <summary><span class="unit-n">Módulo 3</span><span class="unit-t"><span class="el-sym">N</span> Nitrógeno</span><span class="unit-has">Presentación · Manual · 36 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">Nitrato y amonio, transportadores NRT y AMT, asimilación GS/GOGAT y fijación simbiótica.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-3-nitrogeno-presentacion.html" data-pdf="docs/nutricion/modulo-3-nitrogeno.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 3: Nitrógeno" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 3">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>23 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>3.1</span>Ciclo biogeoquímico del nitrógeno</li><li><span>3.2</span>Absorción de nitrato y amonio</li><li><span>3.3</span>Transporte a corta y larga distancia</li><li><span>3.4</span>Distribución, compartimentación y homeostasis</li><li><span>3.5</span>Funciones del nitrógeno en la planta</li><li><span>3.6</span>Deficiencia, exceso y toxicidad</li><li><span>3.7</span>Respuestas adaptativas y regulación</li><li><span>3.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
+        <details class="unit el-unit" id="nut-fosforo" style="--c:var(--c-fosforo)">
+          <summary><span class="unit-n">Módulo 4</span><span class="unit-t"><span class="el-sym">P</span> Fósforo</span><span class="unit-has">Presentación · Manual · 28 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">Fosfato en el suelo, transportadores PHT1, micorrizas y la red de señalización PHR1–SPX.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-4-fosforo-presentacion.html" data-pdf="docs/nutricion/modulo-4-fosforo.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 4: Fósforo" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 4">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>23 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>4.1</span>Ciclo biogeoquímico del fósforo</li><li><span>4.2</span>Absorción de fosfato</li><li><span>4.3</span>Transporte a corta y larga distancia</li><li><span>4.4</span>Distribución, compartimentación y homeostasis</li><li><span>4.5</span>Funciones del fósforo en la planta</li><li><span>4.6</span>Deficiencia, exceso y toxicidad</li><li><span>4.7</span>Respuestas adaptativas y regulación</li><li><span>4.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
+        <details class="unit el-unit" id="nut-potasio" style="--c:var(--c-potasio)">
+          <summary><span class="unit-n">Módulo 5</span><span class="unit-t"><span class="el-sym">K</span> Potasio</span><span class="unit-has">Presentación · Manual · 29 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">El catión más abundante de la célula: canales y transportadores, estomas, osmorregulación y floema.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-5-potasio-presentacion.html" data-pdf="docs/nutricion/modulo-5-potasio.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 5: Potasio" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 5">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>23 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>5.1</span>Ciclo biogeoquímico del potasio</li><li><span>5.2</span>Absorción de potasio</li><li><span>5.3</span>Transporte a corta y larga distancia</li><li><span>5.4</span>Distribución, compartimentación y homeostasis</li><li><span>5.5</span>Funciones del potasio en la planta</li><li><span>5.6</span>Deficiencia, exceso y toxicidad</li><li><span>5.7</span>Respuestas adaptativas y regulación</li><li><span>5.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
+        <details class="unit el-unit" id="nut-sodio" style="--c:var(--c-sodio)">
+          <summary><span class="unit-n">Módulo 6</span><span class="unit-t"><span class="el-sym">Na⁺</span> Sodio</span><span class="unit-has">Presentación · Manual · 69 referencias</span></summary>
+          <div class="unit-body">
+            <p class="el-hook">Nutriente funcional en algunas C₄ y halófitas, y principal ion tóxico de los suelos salinos: HKT, SOS1 y NHX.</p>
+            <div class="viewer" data-pres="docs/nutricion/modulo-6-sodio-presentacion.html" data-pdf="docs/nutricion/modulo-6-sodio.html" data-doc="html">
+              <div class="frame"><iframe title="Material del módulo 6: Sodio" loading="lazy" allowfullscreen></iframe></div>
+              <div class="tools tools-2" role="group" aria-label="Recursos del módulo 6">
+                <button type="button" class="tool" data-show="pres" aria-pressed="true"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 2-4 2z"/></svg><span>Presentación</span><small>24 diapositivas</small></button>
+                <button type="button" class="tool" data-show="pdf" aria-pressed="false"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/></svg><span>Manual del módulo</span><small>Web · 8 secciones · 6 figuras</small></button>
+              </div>
+              <div class="doclinks">
+                <button class="btn primary" type="button" data-act="full">⛶ Pantalla completa</button>
+                <a class="btn" data-act="open" target="_blank" rel="noopener" hidden>Abrir en otra pestaña</a>
+              </div>
+              <p class="hint" data-for="pres">En la presentación: clic, → o Espacio para avanzar · ← para regresar · N muestra las notas · F pantalla completa.</p>
+            </div>
+            <details class="syllabus">
+              <summary>Contenido del módulo</summary>
+              <ol class="subtopics"><li><span>6.1</span>Ciclo biogeoquímico del sodio</li><li><span>6.2</span>Absorción y percepción del sodio</li><li><span>6.3</span>Transporte a corta y larga distancia</li><li><span>6.4</span>Distribución, compartimentación y homeostasis</li><li><span>6.5</span>Funciones del sodio: un nutriente funcional</li><li><span>6.6</span>Deficiencia, exceso y toxicidad</li><li><span>6.7</span>Respuestas adaptativas y regulación</li><li><span>6.8</span>Implicaciones agronómicas</li></ol>
+            </details>
+          </div>
+        </details>
     </div>
     <div class="stack">
       <h2>Cómo está organizado cada módulo</h2>
@@ -998,7 +1149,8 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 (function () {
   var views = ["inicio", "trayectoria", "investigacion", "nutricion", "cultivos", "cana-de-azucar", "docencia", "servicios", "contacto"];
   function show() {
-    var h = (location.hash || "").slice(1);
+    var h = (location.hash || "").slice(1), sub = "";
+    if (h.indexOf("/") > 0) { sub = h.slice(h.indexOf("/") + 1); h = h.slice(0, h.indexOf("/")); }
     if (views.indexOf(h) < 0) h = "inicio";
     views.forEach(function (v) { document.getElementById("v-" + v).hidden = v !== h; });
     document.querySelectorAll("nav.main a").forEach(function (a) {
@@ -1006,17 +1158,37 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       if (a.getAttribute("href") === "#" + navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     window.scrollTo(0, 0);
+    if (h === "nutricion") openModule(sub);
   }
+  function openModule(key) {
+    var target = key ? document.getElementById("nut-" + key) : null;
+    document.querySelectorAll(".el-unit").forEach(function (u) { if (u !== target) u.open = false; });
+    document.querySelectorAll(".el-menu a").forEach(function (a) { a.setAttribute("aria-current", a.dataset.mod === key ? "true" : "false"); });
+    if (!target) return;
+    target.open = true;
+    var hdr = document.querySelector("header.top");
+    setTimeout(function () { window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - (hdr ? hdr.offsetHeight : 0) - 12, behavior: "smooth" }); }, 30);
+  }
+  document.querySelectorAll(".el-unit > summary").forEach(function (s) {
+    s.addEventListener("click", function (e) {
+      e.preventDefault();
+      var u = s.parentNode, key = u.id.slice(4);
+      if (u.open) { u.open = false; history.replaceState(null, "", "#nutricion"); openModule(""); }
+      else if (location.hash === "#nutricion/" + key) openModule(key);
+      else location.hash = "nutricion/" + key;
+    });
+  });
   window.addEventListener("hashchange", show);
   show();
 
   document.querySelectorAll(".viewer").forEach(function (v) {
     var fr = v.querySelector("iframe"), open = v.querySelector('[data-act="open"]');
     function show(kind) {
-      var url = kind === "pdf" ? v.dataset.pdf + "#view=FitH&pagemode=none" : v.dataset.pres;
+      var html = v.dataset.doc === "html";
+      var url = kind === "pdf" ? v.dataset.pdf + (html ? "" : "#view=FitH&pagemode=none") : v.dataset.pres;
       if (fr.getAttribute("src") !== url) fr.setAttribute("src", url);
       open.href = kind === "pdf" ? v.dataset.pdf : v.dataset.pres;
-      open.textContent = kind === "pdf" ? "Abrir o descargar el PDF" : "Abrir en otra pestaña";
+      open.textContent = kind === "pdf" && !html ? "Abrir o descargar el PDF" : "Abrir en otra pestaña";
       v.classList.toggle("is-pdf", kind === "pdf");
       v.querySelectorAll("[data-show]").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.show === kind ? "true" : "false"); });
     }
